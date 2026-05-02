@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Edge" sideBarActiveItemID="projects">
+  <div class="mb-6">
+    <div class="text-sm uppercase tracking-wide opacity-60">CS Thesis · Trading Tools</div>
+    <div class="text-4xl font-bold mt-1">Edge</div>
+    <div class="text-xl mt-2 opacity-80">Forex Market Scanner</div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 mb-6">
+    <a href="https://github.com/neuralxjam/Edge" target="_blank" class="btn btn-primary">View source →</a>
+  </div>
+
+  <div class="alert mb-8">
+    <span>The live VPS deployment is currently paused. Source code is available on GitHub; the thesis manuscript covers the design and findings in depth.</span>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Problem</div>
+  <div class="mb-8 text-base text-justify">
+    Forex traders spend hours scanning charts manually for technical setups across many currency pairs.
+    By the time a human spots a setup, the opportunity may have moved. A scanner that watches live data
+    and surfaces qualifying setups in real time removes the manual scanning step and reduces missed opportunities.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Solution</div>
+  <div class="mb-8 text-base text-justify">
+    Edge is my Computer Science thesis project — a real-time forex market scanner that ingests live price data
+    and applies a set of analytical rules to flag trading setups a trader can act on. The tool was originally
+    deployed on a self-managed VPS for live use during the thesis evaluation period.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Tech &amp; scope</div>
+  <div class="overflow-x-auto mb-8">
+    <table class="table table-zebra">
+      <tbody>
+        <tr><td><b>Language</b></td><td>JavaScript</td></tr>
+        <tr><td><b>Domain</b></td><td>Forex / financial market data</td></tr>
+        <tr><td><b>Deployment</b></td><td>Self-managed VPS (currently paused)</td></tr>
+        <tr><td><b>Type</b></td><td>Computer Science undergraduate thesis</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-base opacity-75 mb-10">
+    A more detailed write-up — including the analytical rules, evaluation methodology,
+    and findings from the live deployment — is available in the thesis manuscript on request.
+  </div>
+</BaseLayout>
