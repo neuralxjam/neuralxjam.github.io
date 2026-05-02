@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="CryptoPulse" sideBarActiveItemID="projects">
+  <div class="mb-6">
+    <div class="text-sm uppercase tracking-wide opacity-60">Data Engineering</div>
+    <div class="text-4xl font-bold mt-1">CryptoPulse</div>
+    <div class="text-xl mt-2 opacity-80">Crypto Market ETL Pipeline + Dashboard</div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 mb-8">
+    <a href="https://cryptopulse.streamlit.app" target="_blank" class="btn btn-primary">Live dashboard →</a>
+    <a href="https://github.com/neuralxjam/cryptopulse" target="_blank" class="btn btn-outline">View source →</a>
+    <a href="https://neuralxjam.github.io/cryptopulse/" target="_blank" class="btn btn-outline">dbt docs →</a>
+  </div>
+
+  <img src="/projects/cryptopulse.png" alt="CryptoPulse dashboard" class="rounded-lg w-full mb-8 border" />
+
+  <div class="text-2xl font-bold mb-3">Problem</div>
+  <div class="mb-8 text-base text-justify">
+    Crypto price data is public and fast-moving, but raw API responses are messy and unnormalised.
+    Most people look at a chart and see a number — a data engineer sees a pipeline problem:
+    how do you reliably ingest, clean, transform, and serve that data so it's always fresh and queryable?
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Solution</div>
+  <div class="mb-4 text-base">
+    A fully automated data pipeline that runs every 6 hours with zero manual steps:
+  </div>
+  <ol class="list-decimal mx-6 mb-8 grid gap-2 text-base">
+    <li><b>Ingest</b> — Python fetches top-100 coin prices from CoinGecko's free API (no key required), validates each row with a pydantic model, writes a timestamped Parquet snapshot.</li>
+    <li><b>Store</b> — An idempotent loader appends the snapshot into DuckDB; duplicate timestamps are silently ignored via <code>INSERT OR IGNORE</code> on a composite primary key.</li>
+    <li><b>Transform</b> — dbt rebuilds a staging view and two mart tables (daily returns leaderboard, top gainers/losers), then runs 10 data-quality tests.</li>
+    <li><b>Commit back</b> — GitHub Actions commits the updated DuckDB file to the repo with <code>[skip ci]</code> so the next cron run picks up fresh historical data.</li>
+    <li><b>Serve</b> — A Streamlit dashboard reads from the mart tables and shows a movers section, a coin price history chart, and a full top-100 leaderboard.</li>
+  </ol>
+
+  <div class="text-2xl font-bold mb-3">Tech stack</div>
+  <div class="overflow-x-auto mb-8">
+    <table class="table table-zebra">
+      <tbody>
+        <tr><td><b>Ingestion</b></td><td>Python · <code>httpx</code> · <code>pydantic</code></td></tr>
+        <tr><td><b>Storage</b></td><td>DuckDB (file-based, committed to repo)</td></tr>
+        <tr><td><b>Transformation</b></td><td><code>dbt-duckdb</code> (staging → marts pattern)</td></tr>
+        <tr><td><b>Orchestration</b></td><td>GitHub Actions <code>schedule:</code> cron (every 6h)</td></tr>
+        <tr><td><b>Dashboard</b></td><td>Streamlit on Streamlit Community Cloud</td></tr>
+        <tr><td><b>Tests</b></td><td>dbt <code>unique</code> · <code>not_null</code> · <code>accepted_values</code></td></tr>
+        <tr><td><b>Docs</b></td><td>dbt docs site hosted on GitHub Pages</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Architecture</div>
+  <pre class="bg-base-300 p-4 rounded-lg overflow-x-auto mb-8 text-sm"><code>GitHub Actions (cron 0 */6 * * *)
+  │
+  ├─ ingest.py ──► data/raw/prices_&lt;UTC&gt;.parquet
+  │                        │
+  ├─ load.py ──────────────► cryptopulse.duckdb
+  │                                   │
+  │              ┌────────────────────┤  raw_prices (table)
+  │              │                    │
+  ├─ dbt run ────┤         stg_prices (view)
+  │              │                    │
+  │              ├── mart_daily_returns (table)
+  │              └── mart_top_movers   (table)
+  │
+  └─ git commit ──► pushes cryptopulse.duckdb back [skip ci]
+
+Streamlit app reads marts → live public dashboard</code></pre>
+
+  <div class="text-2xl font-bold mb-3">Selected lessons</div>
+  <ul class="list-disc mx-6 mb-10 grid gap-2 text-base">
+    <li><b>dbt staging → marts pattern</b> — separating raw-to-clean from clean-to-business-logic means one place to fix schema changes, not every downstream model.</li>
+    <li><b>Idempotency by design</b> — <code>INSERT OR IGNORE</code> on <code>(id, ingested_at)</code> makes the loader safe to re-run; the same lesson applies to every ETL job.</li>
+    <li><b>Jinja in SQL comments is parsed</b> — <code>{`{{ ref(...) }}`}</code> inside a comment creates a real dbt dependency and a false cycle error; always use plain text in comments.</li>
+    <li><b><code>git pull --rebase</code> needs a clean tree.</b> In CI: commit first, then rebase on the remote, then push. Not the other way around.</li>
+    <li><b>Windows zoneinfo</b> — Python's <code>zoneinfo</code> module needs the <code>tzdata</code> PyPI package on Windows (Linux gets it from the OS); catching this early saved a broken GitHub Actions run.</li>
+  </ul>
+</BaseLayout>
