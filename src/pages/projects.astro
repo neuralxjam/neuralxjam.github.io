@@ -3,49 +3,61 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
-<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+<BaseLayout title="Projects" sideBarActiveItemID="projects">
   <div>
-    <div class="text-3xl w-full font-bold mb-5">Projects Header</div>
+    <div class="text-3xl w-full font-bold mb-2">Projects</div>
+    <div class="mb-5 text-base">
+      Three end-to-end projects spanning full-stack web, data engineering, and applied ML.
+      Each is shipped, deployed, and runnable today — links below.
+    </div>
+  </div>
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-2 mt-6">Software Engineering</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    title="JobTrail — Job Application Tracker"
+    img="/projects/jobtrail.gif"
+    desc="Full-stack FastAPI + PostgreSQL (Supabase) + HTMX + Tailwind. Magic-link auth, inline create/edit/delete, status filters, weekly applications dashboard. CI green via GitHub Actions, deployed on Render."
+    url="https://jobtrail-0gza.onrender.com"
+    badge="FastAPI · Postgres · HTMX"
   />
+  <div class="text-sm mt-1 mb-2">
+    <a href="https://github.com/neuralxjam/jobtrail" target="_blank" class="link link-hover">View source →</a>
+  </div>
   <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Projects Header</div>
+    <div class="text-2xl w-full font-bold mb-2 mt-6">Data Engineering</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    title="CryptoPulse — Crypto Market ETL & Dashboard"
+    img="/projects/cryptopulse.png"
+    desc="Daily ETL pipeline pulling top-100 crypto prices from CoinGecko: Python ingest → DuckDB → dbt models (staging + marts) → Streamlit dashboard. Runs every 6h via GitHub Actions. dbt docs site published on GitHub Pages."
+    url="https://cryptopulse.streamlit.app"
+    badge="dbt · DuckDB · Streamlit"
   />
+  <div class="text-sm mt-1 mb-2">
+    <a href="https://github.com/neuralxjam/cryptopulse" target="_blank" class="link link-hover">View source →</a>
+    <span class="mx-2">·</span>
+    <a href="https://neuralxjam.github.io/cryptopulse/" target="_blank" class="link link-hover">dbt docs →</a>
+  </div>
   <div class="divider my-0"></div>
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-2 mt-6">Machine Learning</div>
+  </div>
+
   <HorizontalCard
-    title="Demo Project 4"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    title="StaySure — Hotel Booking Cancellation Predictor"
+    img="/projects/staysure.png"
+    desc="Random Forest classifier reaches F1=0.85 and AUC=0.958 on 119,390 real hotel bookings. Full lifecycle: EDA, feature engineering, sklearn pipelines, model comparison (LR / RF / XGBoost), SHAP explainability, Gradio demo on Hugging Face Spaces."
+    url="https://huggingface.co/spaces/neuralxjam/staysure"
+    badge="scikit-learn · SHAP · Gradio"
   />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 5"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
+  <div class="text-sm mt-1 mb-2">
+    <a href="https://github.com/neuralxjam/staysure" target="_blank" class="link link-hover">View source →</a>
+  </div>
 </BaseLayout>
