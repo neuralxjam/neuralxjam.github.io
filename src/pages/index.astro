@@ -11,49 +11,51 @@ const last_posts = posts.slice(0, 3);
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Manuel Ernesto</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
+    <div class="text-xl py-1">Hi 👋</div>
+    <div class="text-5xl font-bold">I'm Jhames Andrew Macabata</div>
+    <div class="text-3xl py-3 font-bold">Software · Data · AI/ML</div>
     <div class="py-2">
       <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
+        Fresh CS graduate (8Con Academy) building production software, data pipelines, and machine learning.
+        Three shipped projects span the stack — full-stack web (FastAPI + Postgres), data engineering
+        (dbt + DuckDB + scheduled pipelines), and applied ML (scikit-learn classifier with explainability).
+        Open to entry-level <b>Software Engineering</b>, <b>Data Engineering</b>, and <b>AI/ML</b> roles.
       </text>
     </div>
     <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
+      <a class="btn" href="/projects">View Projects</a>
+      <a href="https://github.com/neuralxjam" target="_blank" class="btn btn-outline ml-5">
+        GitHub
       </a>
     </div>
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-2">Featured projects {"</>"}</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
+    title="JobTrail — Job Application Tracker"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    desc="Full-stack FastAPI + PostgreSQL + HTMX. Magic-link auth, inline editing, a status dashboard. Built during my own job hunt because spreadsheets lose context fast. Deployed on Render."
+    url="https://jobtrail-0gza.onrender.com"
+    badge="Full-Stack"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 2"
+    title="CryptoPulse — Crypto Market ETL & Dashboard"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    desc="Daily ETL pipeline: CoinGecko API → DuckDB → dbt models → Streamlit dashboard. Runs every 6 hours via GitHub Actions cron. dbt docs site published on GitHub Pages."
+    url="https://cryptopulse.streamlit.app"
+    badge="Data Eng"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 3"
+    title="StaySure — Hotel Booking Cancellation Predictor"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    desc="Random Forest classifier hits F1=0.85, AUC=0.958 on 119k real bookings. Full ML lifecycle: EDA → feature engineering → model comparison → SHAP explainability → Gradio demo on Hugging Face Spaces."
+    url="https://huggingface.co/spaces/neuralxjam/staysure"
+    badge="ML"
   />
 
   <div>
