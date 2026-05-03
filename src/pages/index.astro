@@ -11,9 +11,10 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="py-2">
       <text class="text-lg">
         Fresh CS graduate (8Con Academy) building production software, data pipelines, and machine learning.
-        Three shipped projects span the stack — full-stack web (FastAPI + Postgres), data engineering
-        (dbt + DuckDB + scheduled pipelines), and applied ML (scikit-learn classifier with explainability).
-        Open to entry-level <b>Software Engineering</b>, <b>Data Engineering</b>, and <b>AI/ML</b> roles.
+        Four shipped projects span the stack — full-stack web (FastAPI + Postgres), data engineering
+        (dbt + DuckDB + scheduled pipelines), applied ML (scikit-learn + SHAP), and a multi-tier SaaS platform
+        with embedded ML (my CS thesis). Open to entry-level <b>Software Engineering</b>,
+        <b>Data Engineering</b>, and <b>AI/ML</b> roles.
       </text>
     </div>
     <div class="mt-8">
@@ -53,6 +54,14 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     url="/projects/staysure"
     target="_self"
     badge="ML"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Edge (8ConEdge) — Forex Trading Platform"
+    desc="CS thesis: multi-tier full-stack SaaS that ranks forex pairs by 9-indicator macroeconomic consensus, augmented with a Python GBDT model. React 19 · Express 5 · Python Flask · MySQL (two pools) · Docker + Nginx. Role + tier access, single-tab enforcement, multi-format report export."
+    url="/projects/edge"
+    target="_self"
+    badge="Thesis · Full-Stack + ML"
   />
 
 </BaseLayout>

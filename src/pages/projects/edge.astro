@@ -4,9 +4,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 <BaseLayout title="Edge" sideBarActiveItemID="projects">
   <div class="mb-6">
-    <div class="text-sm uppercase tracking-wide opacity-60">CS Thesis · Trading Tools</div>
+    <div class="text-sm uppercase tracking-wide opacity-60">Trading Platform · Full-Stack + ML · CS Thesis</div>
     <div class="text-4xl font-bold mt-1">Edge</div>
-    <div class="text-xl mt-2 opacity-80">Forex Market Scanner</div>
+    <div class="text-xl mt-2 opacity-80">Multi-tier forex platform with macroeconomic scoring &amp; GBDT signal layer</div>
   </div>
 
   <div class="flex flex-wrap gap-3 mb-6">
@@ -14,37 +14,103 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   </div>
 
   <div class="alert mb-8">
-    <span>The live VPS deployment is currently paused. Source code is available on GitHub; the thesis manuscript covers the design and findings in depth.</span>
+    <span>The live VPS deployment is currently paused. Source code is on GitHub; the thesis manuscript covers the methodology and findings in depth.</span>
   </div>
 
-  <div class="text-2xl font-bold mb-3">Problem</div>
+  <div class="text-2xl font-bold mb-3">What it is</div>
   <div class="mb-8 text-base text-justify">
-    Forex traders spend hours scanning charts manually for technical setups across many currency pairs.
-    By the time a human spots a setup, the opportunity may have moved. A scanner that watches live data
-    and surfaces qualifying setups in real time removes the manual scanning step and reduces missed opportunities.
+    Edge (deployed as <b>8ConEdge</b>) is my Computer Science thesis: a full-stack SaaS platform that ranks forex
+    currency pairs by macroeconomic-indicator consensus and augments those signals with a Python GBDT model.
+    Users sign in, browse a "Top Setups" leaderboard of pairs scored from -10 to +10, drill into a per-pair
+    profile (score breakdown, OHLC chart, ML conviction reading), and — depending on their tier — export the
+    analysis to PDF / DOCX / XLSX. It's built as a real product, not a notebook: role- and tier-gated access,
+    session security, payment-receipt uploads, and a four-service Docker production deploy behind Nginx.
   </div>
 
-  <div class="text-2xl font-bold mb-3">Solution</div>
-  <div class="mb-8 text-base text-justify">
-    Edge is my Computer Science thesis project — a real-time forex market scanner that ingests live price data
-    and applies a set of analytical rules to flag trading setups a trader can act on. The tool was originally
-    deployed on a self-managed VPS for live use during the thesis evaluation period.
+  <div class="text-2xl font-bold mb-3">The signal: how pairs are ranked</div>
+  <div class="mb-4 text-base">
+    For each currency pair (EUR/USD, GBP/USD, …) the engine pulls nine macro indicators for both the base and
+    quote currencies, scores each indicator <code>+1 / 0 / −1</code> by comparing actual vs. forecast (or by
+    direction-of-change), then aggregates with a fixed weight per indicator. Result is a normalized
+    <b>totalScore</b> in <code>[-10, +10]</code> that ranks every tracked pair.
   </div>
-
-  <div class="text-2xl font-bold mb-3">Tech &amp; scope</div>
   <div class="overflow-x-auto mb-8">
     <table class="table table-zebra">
+      <thead>
+        <tr><th>Indicator</th><th>Weight</th><th>Scoring</th></tr>
+      </thead>
       <tbody>
-        <tr><td><b>Language</b></td><td>JavaScript</td></tr>
-        <tr><td><b>Domain</b></td><td>Forex / financial market data</td></tr>
-        <tr><td><b>Deployment</b></td><td>Self-managed VPS (currently paused)</td></tr>
-        <tr><td><b>Type</b></td><td>Computer Science undergraduate thesis</td></tr>
+        <tr><td>Interest Rate</td><td>3.0</td><td>vs. forecast</td></tr>
+        <tr><td>Core Inflation</td><td>2.5</td><td>vs. forecast</td></tr>
+        <tr><td>Employment Change</td><td>2.0</td><td>beats / misses forecast</td></tr>
+        <tr><td>GDP Growth</td><td>2.0</td><td>beat / miss</td></tr>
+        <tr><td>COT (net change %)</td><td>1.8</td><td>positional bias</td></tr>
+        <tr><td>Unemployment Rate</td><td>1.5</td><td>inverse: lower = +1</td></tr>
+        <tr><td>Manufacturing PMI</td><td>1.2</td><td>beat / miss</td></tr>
+        <tr><td>Services PMI</td><td>1.2</td><td>beat / miss</td></tr>
+        <tr><td>Retail Sales</td><td>1.0</td><td>beat / miss</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="text-base opacity-75 mb-10">
-    A more detailed write-up — including the analytical rules, evaluation methodology,
-    and findings from the live deployment — is available in the thesis manuscript on request.
+  <div class="text-2xl font-bold mb-3">The ML layer</div>
+  <div class="mb-8 text-base text-justify">
+    A separate Python Flask service (port 5001) runs two pre-trained <b>Gradient Boosted Decision Tree</b> models
+    on top of the rule-based scores: <code>conviction_regressor.pkl</code> outputs how strongly to trust the signal
+    for a given regime, and <code>regime_classifier.pkl</code> labels the current market regime. A
+    <code>scaler.pkl</code> handles feature normalization. The Node API proxies requests to this service so the
+    React frontend talks to a single domain. Training data lives alongside the project as
+    <code>synthetic_training_data.csv</code>; <code>train_gbdt.py</code> regenerates the models.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">System architecture</div>
+  <pre class="bg-base-300 p-4 rounded-lg overflow-x-auto mb-8 text-sm"><code>Browser (React 19 + Vite + Tailwind + Framer Motion)
+  │
+  ▼
+Nginx reverse proxy (production) ─── or ─── Vite proxy (dev)
+  │
+  ├──► Express Main API     (Node, :3000)  ── pool8con  (users, profiles, assets)
+  │                                         └─ pool8cons (payments, OTP, registrations)
+  │
+  ├──► Express Enrollment   (Node, :3001)  ── signup · OTP · password reset
+  │                                              │
+  │                                              └── nodemailer → SMTP
+  │
+  └──► Python AI Server     (Flask, :5001) ── GBDT (conviction + regime) · scaler
+
+dev: 4 services run concurrently (concurrently --names BACKEND,ENROLL,VITE,AI-GBDT)
+prod: docker-compose orchestrates all four behind Nginx + certbot TLS</code></pre>
+
+  <div class="text-2xl font-bold mb-3">Tech stack</div>
+  <div class="overflow-x-auto mb-8">
+    <table class="table table-zebra">
+      <tbody>
+        <tr><td><b>Frontend</b></td><td>React 19 · Vite 6 · React Router 7 · TailwindCSS 4 · Framer Motion · Recharts · react-financial-charts (OHLC) · styled-components · lucide-react</td></tr>
+        <tr><td><b>Main API</b></td><td>Express 5 · MySQL 2 (two pools) · express-session + connect-mongo · helmet · express-rate-limit · express-validator · cookie-parser · cors · multer (uploads)</td></tr>
+        <tr><td><b>Auth API</b></td><td>Express 5 (separate process) · bcrypt + bcryptjs · JWT · nodemailer (OTP delivery)</td></tr>
+        <tr><td><b>ML server</b></td><td>Python 3 · Flask · scikit-learn (GBDT) · joblib · pandas · numpy</td></tr>
+        <tr><td><b>Data</b></td><td>MySQL — two databases: <code>8con</code> (accounts, assets) and <code>8cons</code> (payments, OTP)</td></tr>
+        <tr><td><b>Document export</b></td><td>jsPDF + jspdf-autotable · pdfkit · docx · exceljs (PDF / DOCX / XLSX)</td></tr>
+        <tr><td><b>Production</b></td><td>Docker + docker-compose (separate Dockerfile.node and Dockerfile.python) · Nginx reverse proxy · certbot for TLS · self-managed VPS</td></tr>
+        <tr><td><b>Tooling</b></td><td>concurrently (4-service dev runner) · ESLint · nodemon · yarn lock + npm lock both present</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Notable engineering decisions</div>
+  <ul class="list-disc mx-6 mb-8 grid gap-2 text-base">
+    <li><b>Two-dimension access control.</b> Users have a <b>role</b> (<code>student</code> / <code>teacher</code> / <code>admin</code>) and an orthogonal <b>tier</b> (<code>basic</code> / <code>full</code>, payment-gated). <code>RoleRoute</code> guards admin pages; tier guards dashboard features. <code>useAccessControl</code> hits sessionStorage first then verifies with the backend, so guard re-renders are instant after the first check.</li>
+    <li><b>Session security beyond the basics.</b> A 15-minute idle timer triggers a 2-minute warning modal then auto-logout, with a 4-minute heartbeat to <code>/api/session/heartbeat</code> keeping live sessions alive. <b>Single-tab enforcement</b> uses a BroadcastChannel + localStorage heartbeat so opening a second tab kicks the first — protects shared accounts in lab/classroom contexts.</li>
+    <li><b>Two MySQL databases on purpose.</b> <code>pool8con</code> serves user-facing data (accounts, assets); <code>pool8cons</code> serves payments, OTP records, and registrations. Splitting concerns across pools means a payments outage can't take down the dashboard.</li>
+    <li><b>Multi-format export.</b> Reports can be downloaded as PDF (via <code>jspdf-autotable</code>), DOCX (<code>docx</code>), or XLSX (<code>exceljs</code>) so users can drop them straight into whatever workflow they're using.</li>
+    <li><b>OTP, real-world.</b> 5-minute expiry, 5-attempt limit, Multer-handled receipt uploads to a Docker-volume-mounted directory so they survive container restarts.</li>
+    <li><b>Production hardening from day 1.</b> <code>helmet</code> (security headers), <code>express-rate-limit</code> (anti-bruteforce), <code>express-validator</code> (input validation), <code>cookie-parser</code>, <code>cors</code> — all wired in from the initial commit instead of bolted on later.</li>
+  </ul>
+
+  <div class="text-2xl font-bold mb-3">Scope</div>
+  <div class="mb-10 text-base text-justify opacity-80">
+    Computer Science undergraduate thesis (8Con Academy). Originally deployed live on a self-managed VPS for the
+    thesis evaluation period; the VPS is currently paused. The full thesis manuscript covers the analytical
+    methodology, GBDT training procedure, and findings from live use, and is available on request.
   </div>
 </BaseLayout>

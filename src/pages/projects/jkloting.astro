@@ -6,7 +6,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <div class="mb-6">
     <div class="text-sm uppercase tracking-wide opacity-60">Client Work · Frontend</div>
     <div class="text-4xl font-bold mt-1">J.Kloting</div>
-    <div class="text-xl mt-2 opacity-80">Client Landing Page</div>
+    <div class="text-xl mt-2 opacity-80">Custom apparel printing — marketing site &amp; quote system</div>
   </div>
 
   <div class="flex flex-wrap gap-3 mb-8">
@@ -16,26 +16,43 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <div class="text-2xl font-bold mb-3">About</div>
   <div class="mb-8 text-base text-justify">
-    A marketing landing page built for J.Kloting as a client engagement. The site presents the client's
-    offering and contact information at a custom domain
-    (<a href="https://jkloting.store/" target="_blank" class="link">jkloting.store</a>).
+    A two-page marketing site I built for <b>J.Kloting</b>, a custom apparel printer in Meycauayan City, Bulacan, Philippines.
+    Their offering covers DTF, sublimation, and silk-screen printing for schools, sports teams, corporate uniforms, streetwear,
+    and traditional barong shirts. The site serves both as a brand presence and as a working lead-generation tool —
+    visitors can browse the portfolio, see pricing per print method, and submit quote requests directly.
+    Deployed at <a href="https://jkloting.store/" target="_blank" class="link">jkloting.store</a>.
   </div>
 
-  <div class="text-2xl font-bold mb-3">Scope</div>
+  <div class="text-2xl font-bold mb-3">What's on the site</div>
   <ul class="list-disc mx-6 mb-8 grid gap-2 text-base">
-    <li>Static frontend, deployed at a custom domain</li>
-    <li>Custom design — not a template</li>
-    <li>Production site for a real client (not a demo or tutorial project)</li>
+    <li><b>Two pages</b> — a single-scroll landing (`index.html`) and a dedicated barong product page (`barong.html`)</li>
+    <li><b>Portfolio with filtering</b> — MixItUp-powered grid filtering work by category (corporate, sportswear, uniforms, streetwear, barong)</li>
+    <li><b>Pricing breakdown per print method</b> — DTF, sublimation, silk-screen, each with a feature list and turnaround time</li>
+    <li><b>4-step process explainer</b> — Inquiry → Quote → Approve &amp; Pay → Production &amp; Delivery, with payment terms (50/50 split, GCash / bank transfer / cash on pickup)</li>
+    <li><b>Two AJAX forms</b> — Quick Message + Quote Request, posting to <code>api.web3forms.com</code> with honeypot spam protection and animated success/error states</li>
+    <li><b>Mobile contact bar</b> — sticky bottom bar on phones with one-tap call + Messenger shortcuts</li>
+    <li><b>Scroll behaviour</b> — sticky nav that solidifies past 200px, smooth-scroll one-page navigation, scroll-triggered entrance animations</li>
   </ul>
 
-  <div class="text-2xl font-bold mb-3">Tech</div>
-  <div class="overflow-x-auto mb-10">
+  <div class="text-2xl font-bold mb-3">Tech stack</div>
+  <div class="overflow-x-auto mb-8">
     <table class="table table-zebra">
       <tbody>
-        <tr><td><b>Languages</b></td><td>HTML · CSS · JavaScript</td></tr>
-        <tr><td><b>Hosting</b></td><td>Custom domain — <code>jkloting.store</code></td></tr>
-        <tr><td><b>Engagement type</b></td><td>Client work</td></tr>
+        <tr><td><b>Markup &amp; styles</b></td><td>HTML5 · custom CSS · <b>Bootstrap 4</b> grid + components</td></tr>
+        <tr><td><b>Typography</b></td><td>Google Fonts — Playfair Display (headings) + Poppins (body); Linearicons + Font Awesome for icons</td></tr>
+        <tr><td><b>JavaScript</b></td><td>jQuery + ~10 plugins: WOW.js (entrance animations), Stellar.js (parallax), MixItUp (portfolio filter), Owl Carousel, Magnific Popup, Slicknav (mobile menu), Nivo Lightbox, jQuery Easing</td></tr>
+        <tr><td><b>Forms</b></td><td>Web3Forms API (no own backend) · honeypot anti-spam · client-side validation</td></tr>
+        <tr><td><b>Hosting</b></td><td>Cloudflare Workers (deployed via <code>wrangler.jsonc</code>) at the custom <code>jkloting.store</code> domain</td></tr>
+        <tr><td><b>Engagement</b></td><td>Paid client work for a real business (not a demo or tutorial project)</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Honest scoping note</div>
+  <div class="mb-10 text-base text-justify opacity-80">
+    The stack is deliberately traditional — jQuery + Bootstrap 4 + a serverless edge host — chosen because the brief
+    was a fast-turnaround marketing site for a small business, not a SPA. There's no React, no build step, no TypeScript,
+    no design system. The trade-off was the right one for the engagement: the site is small, fast, easy for the client to
+    update later, and was shipped and live on a custom domain end-to-end.
   </div>
 </BaseLayout>
