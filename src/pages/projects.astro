@@ -7,7 +7,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <div>
     <div class="text-3xl w-full font-bold mb-2">Projects</div>
     <div class="mb-5 text-base">
-      Three end-to-end projects spanning full-stack web, data engineering, and applied ML.
+      Five end-to-end projects spanning full-stack web, data engineering, applied ML, and DevOps.
       Each is shipped, deployed, and runnable today — links below.
     </div>
   </div>
@@ -77,6 +77,23 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   />
   <div class="text-sm mt-1 mb-2">
     <a href="https://github.com/neuralxjam/Edge" target="_blank" class="link link-hover">View source →</a>
+  </div>
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-2 mt-6">DevOps · Software Engineering</div>
+  </div>
+
+  <HorizontalCard
+    title="MiniLink — Containerized URL Shortener"
+    desc="Self-hosted URL shortener with redirect analytics. FastAPI + PostgreSQL + Redis read-through cache, multi-stage Docker build, Docker Compose local dev, CI/CD to GHCR, deployed to Railway. Project 4 of a DevOps trio (MiniLink → WatchTower → InfraKit)."
+    url="/projects/minilink"
+    target="_self"
+    badge="Docker · Redis · Railway"
+  />
+  <div class="text-sm mt-1 mb-2">
+    <a href="https://minilink-production.up.railway.app" target="_blank" class="link link-hover">Live demo →</a>
+    <span class="mx-2">·</span>
+    <a href="https://github.com/neuralxjam/minilink" target="_blank" class="link link-hover">View source →</a>
   </div>
 
   <div class="divider my-8"></div>

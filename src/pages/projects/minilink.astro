@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="MiniLink" sideBarActiveItemID="projects">
+  <div class="mb-6">
+    <div class="text-sm uppercase tracking-wide opacity-60">DevOps · Software Engineering</div>
+    <div class="text-4xl font-bold mt-1">MiniLink</div>
+    <div class="text-xl mt-2 opacity-80">Containerized URL Shortener + Analytics</div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 mb-8">
+    <a href="https://minilink-production.up.railway.app" target="_blank" class="btn btn-primary">Live demo →</a>
+    <a href="https://github.com/neuralxjam/minilink" target="_blank" class="btn btn-outline">View source →</a>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Problem</div>
+  <div class="mb-8 text-base text-justify">
+    Every public URL shortener sends your links (and your users' clicks) through someone else's servers.
+    More importantly for portfolio purposes: public shorteners don't require writing a Dockerfile,
+    wiring up Docker Compose, or deploying to a cloud platform. MiniLink exists to demonstrate those
+    DevOps fundamentals in a scope small enough to reason about completely.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Solution</div>
+  <div class="mb-8 text-base text-justify">
+    A self-hosted URL shortener where <code>POST /shorten</code> returns a short code and
+    <code>GET /&#123;code&#125;</code> issues a 302 redirect. Every redirect increments a hit counter
+    in Postgres. A live HTMX dashboard shows the top 20 links by hits. Short-code lookups are served
+    from Redis on the hot path — Postgres is only touched on a cache miss or a write.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Tech stack</div>
+  <div class="overflow-x-auto mb-8">
+    <table class="table table-zebra">
+      <tbody>
+        <tr><td><b>API</b></td><td>FastAPI · SQLModel</td></tr>
+        <tr><td><b>Database</b></td><td>PostgreSQL (Railway managed)</td></tr>
+        <tr><td><b>Cache</b></td><td>Redis — read-through cache, 24-hour TTL (Railway managed)</td></tr>
+        <tr><td><b>Container</b></td><td>Docker — multi-stage build (builder → runtime, ≈150 MB image)</td></tr>
+        <tr><td><b>Local dev</b></td><td>Docker Compose — one command brings up API + Postgres + Redis</td></tr>
+        <tr><td><b>CI/CD</b></td><td>GitHub Actions: lint (ruff) → test (pytest) → build image → push to GHCR → Railway auto-deploy</td></tr>
+        <tr><td><b>Dashboard UI</b></td><td>HTMX + Tailwind CSS (no React, no build step)</td></tr>
+        <tr><td><b>Deploy</b></td><td>Railway — managed services, GitHub App auto-deploy on push to main</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Architecture</div>
+  <pre class="bg-base-300 p-4 rounded-lg overflow-x-auto mb-3 text-sm">Browser
+  │
+  ▼
+FastAPI  (Railway — Dockerfile, port 8080)
+  │
+  ├─ short-code lookup
+  │       │
+  │       ▼
+  │    Redis  ──── miss ────►  PostgreSQL
+  │   (cache)  ◄──── fill ───  (source of truth)
+  │
+  └─ hit counter write ──────► PostgreSQL</pre>
+  <div class="mb-8 text-base text-justify opacity-80">
+    Reads hit Redis first with a 24-hour TTL. A cache miss falls through to Postgres, returns the URL,
+    and warms the Redis entry. Writes (new short code, hit counter increment) go straight to Postgres;
+    the Redis entry is written through on create and invalidated on a consistency check failure.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Selected lessons</div>
+  <ul class="list-disc mx-6 mb-10 grid gap-2 text-base">
+    <li><b>Multi-stage Docker builds matter for image size.</b> A naive single-stage image for this app exceeds 1 GB — the pip install layer balloons. Separating the builder stage (installs deps into <code>/install</code>) from the runtime stage (copies only the artifact) shrinks the final image to ≈150 MB. Smaller images mean faster Railway deploys and less storage cost.</li>
+    <li><b>Docker Compose healthchecks prevent startup races.</b> The API's <code>depends_on</code> with a <code>pg_isready</code> healthcheck on the Postgres service means uvicorn never starts before the DB is ready. Without this, <code>create_db_and_tables()</code> fails on the first boot and the container exits silently.</li>
+    <li><b>Cloud proxy auto-detection can quietly pick the wrong port.</b> Railway's edge proxy detected port 8000 (from the old <code>EXPOSE 8000</code> in the Dockerfile) while uvicorn was actually binding to 8080 (via Railway's injected <code>$PORT</code>). Every request returned 502 with no application-level log. The fix was aligning <code>EXPOSE</code> to 8080 and explicitly setting the Target Port in Railway's dashboard. Always confirm where your proxy thinks your app is listening.</li>
+    <li><b>Redis TTL is a product decision, not a technical detail.</b> A 24-hour TTL is fine for a personal shortener where links rarely change. But if you add a delete/edit feature, the cache entry must be invalidated on write — otherwise visitors hit the stale cached redirect for up to 24 hours after deletion. Design the invalidation path before you design the feature.</li>
+  </ul>
+
+  <div class="text-2xl font-bold mb-3">Local setup</div>
+  <pre class="bg-base-300 p-4 rounded-lg overflow-x-auto mb-10 text-sm"><code>git clone https://github.com/neuralxjam/minilink
+cd minilink
+python -m venv .venv && .venv\Scripts\pip install -r requirements-dev.txt
+docker compose up          # starts API + Postgres + Redis
+# Visit http://localhost:8000</code></pre>
+</BaseLayout>
