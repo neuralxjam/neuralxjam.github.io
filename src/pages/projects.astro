@@ -35,7 +35,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
   <HorizontalCard
     title="CryptoPulse — Crypto Market ETL & Dashboard"
-    img="/projects/cryptopulse.png"
+    img="/projects/cryptopulse.gif"
     desc="Daily ETL pipeline pulling top-100 crypto prices from CoinGecko: Python ingest → DuckDB → dbt models (staging + marts) → Streamlit dashboard. Runs every 6h via GitHub Actions. dbt docs site published on GitHub Pages."
     url="/projects/cryptopulse"
     target="_self"
@@ -54,7 +54,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
   <HorizontalCard
     title="StaySure — Hotel Booking Cancellation Predictor"
-    img="/projects/staysure.png"
+    img="/projects/staysure.gif"
     desc="Random Forest classifier reaches F1=0.85 and AUC=0.958 on 119,390 real hotel bookings. Full lifecycle: EDA, feature engineering, sklearn pipelines, model comparison (LR / RF / XGBoost), SHAP explainability, Gradio demo on Hugging Face Spaces."
     url="/projects/staysure"
     target="_self"
@@ -70,12 +70,15 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
   <HorizontalCard
     title="Edge (8ConEdge) — Forex Trading Platform"
+    img="/projects/edge.gif"
     desc="My CS thesis: a multi-tier full-stack SaaS that ranks forex pairs by 9-indicator macroeconomic consensus, augmented with a Python GBDT model for conviction + regime signals. React 19 · Express 5 · Python Flask · MySQL (two pools) · Docker + Nginx production deploy. Role + tier access control, single-tab enforcement, multi-format report export."
     url="/projects/edge"
     target="_self"
     badge="Thesis · React · Express · Python ML"
   />
   <div class="text-sm mt-1 mb-2">
+    <a href="http://8conedge.com/" target="_blank" class="link link-hover">Live site →</a>
+    <span class="mx-2">·</span>
     <a href="https://github.com/neuralxjam/Edge" target="_blank" class="link link-hover">View source →</a>
   </div>
 
@@ -85,6 +88,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
   <HorizontalCard
     title="MiniLink — Containerized URL Shortener"
+    img="/projects/minilink.gif"
     desc="Self-hosted URL shortener with redirect analytics. FastAPI + PostgreSQL + Redis read-through cache, multi-stage Docker build, Docker Compose local dev, CI/CD to GHCR, deployed to Railway. Project 4 of a DevOps trio (MiniLink → WatchTower → InfraKit)."
     url="/projects/minilink"
     target="_self"
