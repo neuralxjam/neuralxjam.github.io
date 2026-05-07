@@ -22,8 +22,20 @@ const { title, description, image = '/social_img.jpg', ogType = 'website' } = As
 
 <!-- Theme init: run before render to prevent flash -->
 <script is:inline>
-  const t = localStorage.getItem('theme') || 'lofi';
-  document.documentElement.setAttribute('data-theme', t);
+  // Apply saved theme immediately (prevents flash)
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'lofi');
+
+  // Click handler — added once, never stacks across page transitions
+  if (!window.__themeReady) {
+    window.__themeReady = true;
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('#theme-toggle')) {
+        const next = document.documentElement.getAttribute('data-theme') === 'dim' ? 'lofi' : 'dim';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      }
+    });
+  }
 </script>
 <meta name="generator" content={Astro.generator} />
 
