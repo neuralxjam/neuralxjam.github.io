@@ -70,9 +70,9 @@ const skills = [
 ];
 ---
 
-<BaseLayout title="About" sideBarActiveItemID="about">
+<BaseLayout title="About Me" sideBarActiveItemID="about">
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">About</div>
+    <div class="text-3xl w-full font-bold">About Me</div>
   </div>
 
   <div class="mb-10 text-justify text-base">
@@ -83,17 +83,29 @@ const skills = [
     expanding into backend development, data engineering, and machine learning through hands-on project work.
   </div>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">What I'm building toward</div>
+  <div class="mb-4">
+    <div class="text-3xl w-full font-bold">Open to</div>
   </div>
 
-  <div class="mb-10 text-base">
-    I'm targeting entry-level roles in:
-    <ul class="list-disc mx-6 mt-3 grid gap-2">
-      <li><b>Software Engineering</b> — full-stack web applications with real backends, auth, databases, and deployment.</li>
-      <li><b>Data Engineering</b> — automated pipelines, transformations, and dashboards that turn raw data into usable insights.</li>
-      <li><b>AI / Machine Learning</b> — end-to-end ML projects: clean data, train models, explain predictions, deploy demos.</li>
-    </ul>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">Software Engineering</div>
+        <p class="text-sm opacity-80 m-0">Full-stack web apps with real backends, auth, databases, and production deployment.</p>
+      </div>
+    </div>
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">Data Engineering</div>
+        <p class="text-sm opacity-80 m-0">Automated pipelines, transformations, and dashboards that turn raw data into usable insights.</p>
+      </div>
+    </div>
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-1">AI / Machine Learning</div>
+        <p class="text-sm opacity-80 m-0">End-to-end ML projects: clean data, train models, explain predictions, deploy demos.</p>
+      </div>
+    </div>
   </div>
 
   <div class="mb-5">
@@ -127,32 +139,46 @@ const skills = [
     ))}
   </div>
 
-  <div class="mb-5">
+  <div class="mb-4">
     <div class="text-3xl w-full font-bold">How I work</div>
   </div>
 
-  <div class="mb-10 text-justify text-base">
-    I learn best by building real things with a clear purpose. Each project in this portfolio solves an actual problem,
-    ships to a live URL, and reflects what I'd bring to a real team — not just "I followed a tutorial." I'm comfortable
-    asking for help when stuck, breaking problems into small steps, and iterating toward something that actually works.
+  <div class="card bg-base-200 border-l-4 border-neutral rounded-l-none mb-10">
+    <div class="card-body p-5 text-base text-justify">
+      I learn best by building real things with a clear purpose. Each project in this portfolio solves an actual problem,
+      ships to a live URL, and reflects what I'd bring to a real team — not just "I followed a tutorial." I'm comfortable
+      asking for help when stuck, breaking problems into small steps, and iterating toward something that actually works.
+    </div>
   </div>
 
-  <div class="mb-5">
+  <div class="mb-4">
     <div class="text-3xl w-full font-bold">Goals</div>
   </div>
 
-  <div class="mb-10 text-base">
-    <p class="mb-3"><b>Short-term:</b> Land an entry-level role where I can contribute quickly and grow fast.</p>
-    <p><b>Long-term:</b> Become a well-rounded engineer who can move fluidly between software, data, and ML layers — the kind of person who can understand a business problem end-to-end and build a solution for it.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-2">Short-term</div>
+        <p class="text-sm m-0">Land an entry-level role where I can contribute quickly and grow fast.</p>
+      </div>
+    </div>
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-2">Long-term</div>
+        <p class="text-sm m-0">Become a well-rounded engineer who can move fluidly between software, data, and ML layers — someone who understands a business problem end-to-end and can build a solution for it.</p>
+      </div>
+    </div>
   </div>
 
-  <div class="mb-5">
+  <div class="mb-4">
     <div class="text-3xl w-full font-bold">Education</div>
   </div>
 
-  <div class="mb-10 text-base">
-    <b>Bachelor of Science in Computer Science</b><br>
-    8Con Academy
+  <div class="card bg-base-200 border border-base-300 mb-10">
+    <div class="card-body p-4">
+      <div class="font-bold">Bachelor of Science in Computer Science</div>
+      <div class="text-sm opacity-60">8Con Academy &nbsp;·&nbsp; Philippines</div>
+    </div>
   </div>
 
 </BaseLayout>
