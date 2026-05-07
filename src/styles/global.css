@@ -1,3 +1,19 @@
 .time-line-container>div:last-child .education__time>.education__line {
     display: none;
 }
+
+/* ── Dark mode badge overrides ── */
+
+/* Featured project badge → yellow in dark mode */
+[data-theme="dim"] .badge-secondary {
+  background-color: #eab308 !important;
+  border-color: #eab308 !important;
+  color: #1c1c1e !important;
+}
+
+/* "Building" status badge → orange in dark mode */
+[data-theme="dim"] .badge-warning {
+  background-color: #f97316 !important;
+  border-color: #f97316 !important;
+  color: #fff !important;
+}
