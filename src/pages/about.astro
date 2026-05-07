@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="About Me" sideBarActiveItemID="about">
+
+  <!-- ── About Me ── -->
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">About Me</div>
   </div>
@@ -15,6 +17,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     expanding into backend development, data engineering, and machine learning through hands-on project work.
   </div>
 
+  <!-- ── Open to ── -->
   <div class="mb-4">
     <div class="text-3xl w-full font-bold">Open to</div>
   </div>
@@ -40,179 +43,178 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </div>
 
-  <!-- ── TECHNICAL SKILLS — Architecture graph ── -->
+  <!-- ── Technical Skills ── -->
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Technical skills</div>
+    <div class="text-3xl w-full font-bold">Technical Skills</div>
   </div>
 
-  <div class="mb-10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
 
-    <!-- Layer 0: Languages (foundation) -->
-    <div class="flex justify-center mb-1">
-      <div class="arch-box w-full max-w-sm">
-        <div class="arch-label">Languages</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/python" class="w-3 h-3" alt=""/>Python</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/javascript" class="w-3 h-3" alt=""/>JavaScript</span>
-          <span class="arch-chip arch-chip-abbr">SQL</span>
+    <!-- Full-Stack -->
+    <div class="card bg-base-200 border border-base-300 border-t-2 border-t-neutral">
+      <div class="card-body p-4">
+        <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">I can build</div>
+        <div class="font-bold text-base mb-1">Full-Stack Apps</div>
+        <p class="text-xs opacity-60 mb-3 leading-relaxed">
+          End-to-end web apps with auth, real APIs, and production databases — shipped and running.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/python" class="w-3 h-3" alt=""/>Python</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/javascript" class="w-3 h-3" alt=""/>JavaScript</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/fastapi" class="w-3 h-3" alt=""/>FastAPI</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/nodedotjs" class="w-3 h-3" alt=""/>Node.js</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/express" class="w-3 h-3" alt=""/>Express</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/react" class="w-3 h-3" alt=""/>React</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/htmx" class="w-3 h-3" alt=""/>HTMX</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/tailwindcss" class="w-3 h-3" alt=""/>Tailwind</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/postgresql" class="w-3 h-3" alt=""/>PostgreSQL</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/mysql" class="w-3 h-3" alt=""/>MySQL</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/supabase" class="w-3 h-3" alt=""/>Supabase</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/docker" class="w-3 h-3" alt=""/>Docker</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/nginx" class="w-3 h-3" alt=""/>Nginx</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/git" class="w-3 h-3" alt=""/>Git</span>
         </div>
       </div>
     </div>
 
-    <!-- Arrow down -->
-    <div class="flex justify-center my-1">
-      <svg width="2" height="20" viewBox="0 0 2 20" class="opacity-30"><line x1="1" y1="0" x2="1" y2="16" stroke="currentColor" stroke-width="1.5"/><polygon points="1,20 -2,14 4,14" fill="currentColor" opacity="0.5"/></svg>
-    </div>
-
-    <!-- Layer 1: Backend + Frontend -->
-    <div class="grid grid-cols-2 gap-3 mb-1">
-      <div class="arch-box">
-        <div class="arch-label">Backend</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/fastapi" class="w-3 h-3" alt=""/>FastAPI</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/nodedotjs" class="w-3 h-3" alt=""/>Node.js</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/express" class="w-3 h-3" alt=""/>Express</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/strapi" class="w-3 h-3" alt=""/>Strapi</span>
-        </div>
-      </div>
-      <div class="arch-box">
-        <div class="arch-label">Frontend</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/react" class="w-3 h-3" alt=""/>React</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/htmx" class="w-3 h-3" alt=""/>HTMX</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/tailwindcss" class="w-3 h-3" alt=""/>Tailwind</span>
+    <!-- Data Engineering -->
+    <div class="card bg-base-200 border border-base-300 border-t-2 border-t-neutral">
+      <div class="card-body p-4">
+        <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">I can build</div>
+        <div class="font-bold text-base mb-1">Data Pipelines</div>
+        <p class="text-xs opacity-60 mb-3 leading-relaxed">
+          ETL pipelines, dbt models, and dashboards that turn raw API data into usable insights.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/python" class="w-3 h-3" alt=""/>Python</span>
+          <span class="skill-chip abbr-chip">SQL</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/duckdb" class="w-3 h-3" alt=""/>DuckDB</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/dbt" class="w-3 h-3" alt=""/>dbt</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/pandas" class="w-3 h-3" alt=""/>pandas</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/streamlit" class="w-3 h-3" alt=""/>Streamlit</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/postgresql" class="w-3 h-3" alt=""/>PostgreSQL</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/githubactions" class="w-3 h-3" alt=""/>GH Actions</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/render" class="w-3 h-3" alt=""/>Render</span>
         </div>
       </div>
     </div>
 
-    <!-- Arrow down -->
-    <div class="flex justify-center my-1">
-      <svg width="2" height="20" viewBox="0 0 2 20" class="opacity-30"><line x1="1" y1="0" x2="1" y2="16" stroke="currentColor" stroke-width="1.5"/><polygon points="1,20 -2,14 4,14" fill="currentColor" opacity="0.5"/></svg>
-    </div>
-
-    <!-- Layer 2: Databases + Data & ML -->
-    <div class="grid grid-cols-2 gap-3 mb-1">
-      <div class="arch-box">
-        <div class="arch-label">Databases</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/postgresql" class="w-3 h-3" alt=""/>PostgreSQL</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/mysql" class="w-3 h-3" alt=""/>MySQL</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/duckdb" class="w-3 h-3" alt=""/>DuckDB</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/redis" class="w-3 h-3" alt=""/>Redis</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/supabase" class="w-3 h-3" alt=""/>Supabase</span>
-        </div>
-      </div>
-      <div class="arch-box">
-        <div class="arch-label">Data &amp; ML</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/pandas" class="w-3 h-3" alt=""/>pandas</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/dbt" class="w-3 h-3" alt=""/>dbt</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/scikitlearn" class="w-3 h-3" alt=""/>scikit-learn</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/streamlit" class="w-3 h-3" alt=""/>Streamlit</span>
-          <span class="arch-chip arch-chip-abbr">XGBoost</span>
-          <span class="arch-chip arch-chip-abbr">SHAP</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Arrow down -->
-    <div class="flex justify-center my-1">
-      <svg width="2" height="20" viewBox="0 0 2 20" class="opacity-30"><line x1="1" y1="0" x2="1" y2="16" stroke="currentColor" stroke-width="1.5"/><polygon points="1,20 -2,14 4,14" fill="currentColor" opacity="0.5"/></svg>
-    </div>
-
-    <!-- Layer 3: DevOps & Infra -->
-    <div class="flex justify-center mb-1">
-      <div class="arch-box w-full">
-        <div class="arch-label">DevOps &amp; Infra</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/docker" class="w-3 h-3" alt=""/>Docker</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/githubactions" class="w-3 h-3" alt=""/>GH Actions</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/nginx" class="w-3 h-3" alt=""/>Nginx</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/git" class="w-3 h-3" alt=""/>Git</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Arrow down -->
-    <div class="flex justify-center my-1">
-      <svg width="2" height="20" viewBox="0 0 2 20" class="opacity-30"><line x1="1" y1="0" x2="1" y2="16" stroke="currentColor" stroke-width="1.5"/><polygon points="1,20 -2,14 4,14" fill="currentColor" opacity="0.5"/></svg>
-    </div>
-
-    <!-- Layer 4: Platforms & Tools -->
-    <div class="flex justify-center">
-      <div class="arch-box w-full">
-        <div class="arch-label">Platforms &amp; Tools</div>
-        <div class="arch-chips">
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/render" class="w-3 h-3" alt=""/>Render</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/railway" class="w-3 h-3" alt=""/>Railway</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/huggingface" class="w-3 h-3" alt=""/>Hugging Face</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/visualstudiocode" class="w-3 h-3" alt=""/>VS Code</span>
-          <span class="arch-chip"><img src="https://cdn.simpleicons.org/jupyter" class="w-3 h-3" alt=""/>Jupyter</span>
+    <!-- ML / AI -->
+    <div class="card bg-base-200 border border-base-300 border-t-2 border-t-neutral">
+      <div class="card-body p-4">
+        <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">I can build</div>
+        <div class="font-bold text-base mb-1">ML Systems</div>
+        <p class="text-xs opacity-60 mb-3 leading-relaxed">
+          Full ML lifecycle: EDA, feature engineering, model comparison, explainability, and deployed demos.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/python" class="w-3 h-3" alt=""/>Python</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/scikitlearn" class="w-3 h-3" alt=""/>scikit-learn</span>
+          <span class="skill-chip abbr-chip">XGBoost</span>
+          <span class="skill-chip abbr-chip">SHAP</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/pandas" class="w-3 h-3" alt=""/>pandas</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/streamlit" class="w-3 h-3" alt=""/>Streamlit</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/huggingface" class="w-3 h-3" alt=""/>Hugging Face</span>
+          <span class="skill-chip"><img src="https://cdn.simpleicons.org/jupyter" class="w-3 h-3" alt=""/>Jupyter</span>
         </div>
       </div>
     </div>
 
   </div>
-  <!-- ── end architecture graph ── -->
 
-  <div class="mb-4">
-    <div class="text-3xl w-full font-bold">How I work</div>
+  <!-- ── Soft Skills ── -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Soft Skills</div>
   </div>
 
-  <div class="card bg-base-200 border-l-4 border-neutral rounded-l-none mb-10">
-    <div class="card-body p-5 text-base text-justify">
-      I learn best by building real things with a clear purpose. Each project in this portfolio solves an actual problem,
-      ships to a live URL, and reflects what I'd bring to a real team — not just "I followed a tutorial." I'm comfortable
-      asking for help when stuck, breaking problems into small steps, and iterating toward something that actually works.
-    </div>
+  <div class="flex flex-wrap gap-3 mb-10">
+    <span class="soft-pill">🚀 Fast Learner</span>
+    <span class="soft-pill">🔍 Problem Solver</span>
+    <span class="soft-pill">🎯 Self-Directed</span>
+    <span class="soft-pill">🤝 Collaborative</span>
+    <span class="soft-pill">🔬 Detail-Oriented</span>
+    <span class="soft-pill">👥 Team Leader</span>
   </div>
 
-  <div class="mb-4">
-    <div class="text-3xl w-full font-bold">Goals</div>
+  <!-- ── Key Achievements ── -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Key Achievements</div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+
     <div class="card bg-base-200 border border-base-300">
       <div class="card-body p-4">
-        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-2">Short-term</div>
-        <p class="text-sm m-0">Land an entry-level role where I can contribute quickly and grow fast.</p>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">🏆</span>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">2026 · Academics</div>
+            <div class="font-bold text-sm leading-snug">Best Thesis — BSCS Public Forum</div>
+            <p class="text-xs opacity-65 m-0 mt-1 leading-relaxed">
+              8ConEdge recognized as best thesis at the 8Con Academy public forum. Served as Group Leader.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="card bg-base-200 border border-base-300">
       <div class="card-body p-4">
-        <div class="text-xs font-bold uppercase tracking-widest opacity-50 mb-2">Long-term</div>
-        <p class="text-sm m-0">Become a well-rounded engineer who can move fluidly between software, data, and ML layers — someone who understands a business problem end-to-end and can build a solution for it.</p>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">⬆️</span>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">Professional</div>
+            <div class="font-bold text-sm leading-snug">IT Team Leader — 8Con Academy</div>
+            <p class="text-xs opacity-65 m-0 mt-1 leading-relaxed">
+              Promoted from Intern to IT Team Leader, overseeing internal tech operations and tools.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="mb-4">
-    <div class="text-3xl w-full font-bold">Education</div>
-  </div>
-
-  <div class="card bg-base-200 border border-base-300 mb-10">
-    <div class="card-body p-4">
-      <div class="font-bold">Bachelor of Science in Computer Science</div>
-      <div class="text-sm opacity-60">8Con Academy &nbsp;·&nbsp; Philippines</div>
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">🥉</span>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">Competition</div>
+            <div class="font-bold text-sm leading-snug">Java Programming — 3rd Place</div>
+            <p class="text-xs opacity-65 m-0 mt-1 leading-relaxed">
+              Placed 3rd in a Java programming competition among competing schools.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-4">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-0.5">🤖</span>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">2019 · Competition</div>
+            <div class="font-bold text-sm leading-snug">Division Science Fair — Robotics Champion</div>
+            <p class="text-xs opacity-65 m-0 mt-1 leading-relaxed">
+              Led the team to a championship win in the Robotics Team Category at the Division Science Fair.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </BaseLayout>
 
 <style>
-  .arch-box {
-    @apply bg-base-200 border border-base-300 rounded-xl p-3;
-  }
-  .arch-label {
-    @apply text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2;
-  }
-  .arch-chips {
-    @apply flex flex-wrap gap-1.5;
-  }
-  .arch-chip {
+  .skill-chip {
     @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-base-100 border border-base-300 text-[11px] font-medium;
   }
-  .arch-chip-abbr {
-    @apply font-semibold opacity-70;
+  .abbr-chip {
+    @apply font-semibold opacity-75;
+  }
+  .soft-pill {
+    @apply px-5 py-2.5 rounded-full bg-base-200 border border-base-300 text-sm font-medium tracking-wide;
   }
 </style>
