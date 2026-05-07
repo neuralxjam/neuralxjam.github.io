@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import UpcomingCard from "../components/UpcomingCard.astro";
+import ClientCard from "../components/ClientCard.astro";
 ---
 
 <BaseLayout sideBarActiveItemID="home">
@@ -12,8 +13,8 @@ import UpcomingCard from "../components/UpcomingCard.astro";
     <div class="py-2">
       <text class="text-lg">
         Fresh CS graduate (8Con Academy) building production software, data pipelines, and machine learning.
-        Five shipped projects span the stack — full-stack web, data engineering, applied ML, a multi-tier SaaS
-        thesis, and a containerised cloud service with CI/CD. Open to entry-level <b>Software Engineering</b>,
+        Five shipped personal projects plus two live client sites — spanning full-stack web, data engineering,
+        applied ML, DevOps, and a multi-tier SaaS thesis. Open to entry-level <b>Software Engineering</b>,
         <b>Data Engineering</b>, and <b>AI/ML</b> roles.
       </text>
     </div>
@@ -75,15 +76,38 @@ import UpcomingCard from "../components/UpcomingCard.astro";
   />
 
   <div class="mt-16 mb-8">
-    <div class="text-3xl w-full font-bold mb-2">What's next {"</>"}</div>
-    <p class="text-sm opacity-75 mb-5">A roadmap of work in progress and planned next steps. Each will graduate to Featured once shipped.</p>
+    <div class="text-3xl w-full font-bold mb-2">Client work {"</>"}</div>
+    <p class="text-sm opacity-75 mb-5">Shipped for real clients — real requirements, real deadlines, real users.</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <UpcomingCard
+      <ClientCard
+        title="J.Kloting"
+        desc="Marketing site and quote system for a custom apparel printer in Bulacan. Portfolio filtering, pricing breakdown, AJAX forms with spam protection."
+        status="Live"
+        stack="Bootstrap 4 · jQuery · Cloudflare Workers"
+        url="https://jkloting.store/"
+        detailUrl="/projects/jkloting"
+      />
+      <ClientCard
+        title="8Con Academy"
+        desc="Official landing page for a Philippine tech academy. Multi-page React SPA with enrollment inquiry forms and Express email backend."
+        status="Live"
+        stack="React 19 · Vite 6 · Express · Nodemailer"
+        url="https://www.8conacademy.com/"
+        detailUrl="/projects/8conacademy"
+      />
+      <ClientCard
         title="PCCI Membership Platform"
-        desc="Client work for a Philippine chamber of commerce — role-based dues tracking, multi-channel payments, automated notifications."
+        desc="Membership management system for a Philippine chamber of commerce — role-based dues tracking, multi-channel payments, automated notifications."
         status="Building"
         stack="Laravel 12 · PostgreSQL · Sanctum · Tailwind"
       />
+    </div>
+  </div>
+
+  <div class="mt-10 mb-8">
+    <div class="text-3xl w-full font-bold mb-2">What's next {"</>"}</div>
+    <p class="text-sm opacity-75 mb-5">Personal projects on the roadmap — each will graduate to Featured once shipped.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <UpcomingCard
         title="WatchTower"
         desc="Observability stack for self-hosted services — metrics, logs, and alerts layered onto containerized apps."

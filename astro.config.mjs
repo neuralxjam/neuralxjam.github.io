@@ -8,6 +8,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://neuralxjam.github.io',
+  site: 'https://jhamesandrewmacabata.space',
   integrations: [mdx(), tailwind()]
 });

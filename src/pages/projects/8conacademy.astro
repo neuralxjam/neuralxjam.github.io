@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="8Con Academy Website" sideBarActiveItemID="projects">
+  <div class="mb-6">
+    <div class="text-sm uppercase tracking-wide opacity-60">Client Work · Frontend</div>
+    <div class="text-4xl font-bold mt-1">8Con Academy</div>
+    <div class="text-xl mt-2 opacity-80">Official landing page for a Philippine tech academy</div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 mb-8">
+    <a href="https://www.8conacademy.com/" target="_blank" class="btn btn-primary">Live site →</a>
+    <a href="https://github.com/neuralxjam/8ConLandingPage-main" target="_blank" class="btn btn-outline">View source →</a>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">About</div>
+  <div class="mb-8 text-base text-justify">
+    The official marketing and enrollment site for <b>8Con Academy</b>, a software development and technology
+    academy in the Philippines. The site serves as the primary digital presence for the school —
+    prospective students land here to learn about programs, browse what the academy offers, and submit
+    enrollment inquiries. Built as a multi-page React SPA with a lightweight Express backend that handles
+    contact form submissions and routes emails to the admissions team.
+  </div>
+
+  <div class="text-2xl font-bold mb-3">What's on the site</div>
+  <ul class="list-disc mx-6 mb-8 grid gap-2 text-base">
+    <li><b>Multi-page SPA</b> — React Router DOM 7 handles client-side routing across program, about, and contact pages without full reloads</li>
+    <li><b>Enrollment inquiry form</b> — submissions processed by an Express backend using Nodemailer; file attachments supported via Multer</li>
+    <li><b>EmailJS integration</b> — client-side email fallback for lightweight contact forms</li>
+    <li><b>Icon system</b> — Lucide React throughout for consistent, lightweight SVG iconography</li>
+    <li><b>Smooth scroll</b> — polyfill-backed scroll behaviour across browsers</li>
+  </ul>
+
+  <div class="text-2xl font-bold mb-3">Tech stack</div>
+  <div class="overflow-x-auto mb-8">
+    <table class="table table-zebra">
+      <tbody>
+        <tr><td><b>Frontend</b></td><td>React 19 · Vite 6 · React Router DOM 7</td></tr>
+        <tr><td><b>Icons</b></td><td>Lucide React</td></tr>
+        <tr><td><b>Backend</b></td><td>Express 5 · Nodemailer · Multer (file uploads)</td></tr>
+        <tr><td><b>Email</b></td><td>EmailJS (client-side) + Nodemailer (server-side)</td></tr>
+        <tr><td><b>Build</b></td><td>Vite 6 with <code>@vitejs/plugin-react</code></td></tr>
+        <tr><td><b>Engagement</b></td><td>Client work — live institutional site for a real academy</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-2xl font-bold mb-3">Scoping note</div>
+  <div class="mb-10 text-base text-justify opacity-80">
+    This is an institutional landing page built for a real client with a real audience — not a demo.
+    The Express backend runs alongside Vite in development (<code>concurrently</code>) and handles
+    form submissions server-side so enrollment inquiries reach the right people reliably.
+    Stack choices (React 19, Vite 6) kept the build modern while the Express + Nodemailer backend
+    avoided any reliance on third-party form services for mission-critical contact flows.
+  </div>
+</BaseLayout>
