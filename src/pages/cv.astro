@@ -1,0 +1,152 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+
+  <!-- Header + Download button -->
+  <div class="flex items-start justify-between mb-8 flex-wrap gap-4">
+    <div>
+      <div class="text-3xl w-full font-bold">Resume</div>
+      <div class="text-sm opacity-60 mt-1">Jhames Andrew Macabata</div>
+    </div>
+    <a
+      href="/JhamesAndrewMacabata_Resume.pdf"
+      download
+      class="btn btn-neutral btn-sm gap-2"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      </svg>
+      Download PDF
+    </a>
+  </div>
+
+  <!-- Contact -->
+  <div class="mb-8 text-sm opacity-70 flex flex-wrap gap-x-5 gap-y-1">
+    <span>jam.macabata@outlook.com</span>
+    <a href="https://github.com/neuralxjam" target="_blank" class="link link-hover">github.com/neuralxjam</a>
+    <a href="https://linkedin.com/in/jhamesandrewmacabata" target="_blank" class="link link-hover">linkedin.com/in/jhamesandrewmacabata</a>
+    <span>Philippines</span>
+  </div>
+
+  <div class="divider my-2"></div>
+
+  <!-- Education -->
+  <div class="mb-6">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Education</div>
+    <div class="flex justify-between items-start flex-wrap gap-1">
+      <div>
+        <div class="font-bold">Bachelor of Science in Computer Science</div>
+        <div class="text-sm opacity-60">8Con Academy · Philippines</div>
+      </div>
+      <div class="text-sm opacity-50">2026</div>
+    </div>
+  </div>
+
+  <div class="divider my-2"></div>
+
+  <!-- Experience -->
+  <div class="mb-6">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Experience</div>
+    <div class="flex justify-between items-start flex-wrap gap-1 mb-1">
+      <div>
+        <div class="font-bold">IT Team Leader</div>
+        <div class="text-sm opacity-60">8Con Academy</div>
+      </div>
+      <div class="text-sm opacity-50">2025 – Present</div>
+    </div>
+    <ul class="list-disc list-inside text-sm opacity-75 space-y-1 mt-2 ml-1">
+      <li>Promoted from Intern to IT Team Leader, overseeing internal tech operations and tools.</li>
+      <li>Led development of internal systems and client-facing web platforms for the organization.</li>
+    </ul>
+  </div>
+
+  <div class="divider my-2"></div>
+
+  <!-- Projects -->
+  <div class="mb-6">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Projects</div>
+
+    <div class="space-y-5">
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div class="font-bold">8ConEdge — Forex Market Scanner</div>
+          <a href="http://8conedge.com" target="_blank" class="text-xs link link-hover opacity-50">8conedge.com</a>
+        </div>
+        <div class="text-xs opacity-50 mb-1">React 19 · Express 5 · Python Flask · MySQL · Docker · Nginx</div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1">
+          <li>Built a multi-tier forex SaaS with React 19, Express 5, and a Python ML microservice — Dockerized and deployed to production with role-based access control.</li>
+          <li>Designed a 9-indicator consensus engine with ML-augmented signals; awarded Best Thesis at the 2026 BSCS Public Forum as Group Leader.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div class="font-bold">StaySure — Hotel Booking Cancellation Predictor</div>
+          <a href="https://github.com/neuralxjam/staysure" target="_blank" class="text-xs link link-hover opacity-50">GitHub</a>
+        </div>
+        <div class="text-xs opacity-50 mb-1">scikit-learn · XGBoost · SHAP · Gradio · Hugging Face</div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1">
+          <li>Trained a Random Forest classifier on 119,390 hotel bookings achieving F1 = 0.85 and AUC = 0.958 across LR, RF, and XGBoost baselines.</li>
+          <li>Applied SHAP explainability to surface key cancellation drivers and deployed a live demo on Hugging Face Spaces.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div class="font-bold">8Con Academy Website</div>
+        </div>
+        <div class="text-xs opacity-50 mb-1">React 19 · Vite 6 · React Router 7 · Express 5 · Nodemailer · Multer</div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1">
+          <li>Developed a full-stack marketing and enrollment platform for a forex derivatives trading school.</li>
+          <li>Integrated Nodemailer for transactional emails and Multer for file uploads, delivering a complete lead-capture workflow.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div class="font-bold">J.Kloting — Custom Apparel Printer</div>
+          <a href="https://jkloting.store" target="_blank" class="text-xs link link-hover opacity-50">jkloting.store</a>
+        </div>
+        <div class="text-xs opacity-50 mb-1">Bootstrap 4 · jQuery · Cloudflare Workers · Web3Forms</div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1">
+          <li>Built and deployed a marketing and quote-request site for a custom apparel business, live on Cloudflare Workers.</li>
+          <li>Implemented AJAX quote forms via Web3Forms with a fully serverless, zero-backend architecture.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider my-2"></div>
+
+  <!-- Skills -->
+  <div class="mb-6">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Technical Skills</div>
+    <div class="text-sm space-y-1.5 opacity-80">
+      <div><span class="font-semibold">Languages:</span> Python, JavaScript, SQL</div>
+      <div><span class="font-semibold">Backend:</span> FastAPI, Node.js, Express, Strapi</div>
+      <div><span class="font-semibold">Frontend:</span> React, HTMX, Tailwind CSS</div>
+      <div><span class="font-semibold">Databases:</span> PostgreSQL, MySQL, DuckDB, Redis, Supabase</div>
+      <div><span class="font-semibold">Data & ML:</span> pandas, dbt, scikit-learn, XGBoost, SHAP, Streamlit</div>
+      <div><span class="font-semibold">DevOps:</span> Docker, GitHub Actions, Nginx, Git</div>
+      <div><span class="font-semibold">Platforms:</span> Render, Railway, Hugging Face, Cloudflare Workers</div>
+    </div>
+  </div>
+
+  <div class="divider my-2"></div>
+
+  <!-- Achievements -->
+  <div class="mb-10">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Key Achievements</div>
+    <ul class="list-disc list-inside text-sm opacity-75 space-y-1.5 ml-1">
+      <li>Best Thesis — 2026 BSCS Public Forum (8ConEdge, Group Leader)</li>
+      <li>IT Team Leader — 8Con Academy (promoted from Intern)</li>
+      <li>3rd Place — Java Programming Competition</li>
+      <li>Champion — 2019 Division Science Fair, Robotics Team Category (Team Leader)</li>
+    </ul>
+  </div>
+
+</BaseLayout>
