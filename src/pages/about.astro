@@ -127,13 +127,98 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="text-3xl w-full font-bold">Soft Skills</div>
   </div>
 
-  <div class="flex flex-wrap gap-3 mb-10">
-    <span class="soft-pill">🚀 Fast Learner</span>
-    <span class="soft-pill">🔍 Problem Solver</span>
-    <span class="soft-pill">🎯 Self-Directed</span>
-    <span class="soft-pill">🤝 Collaborative</span>
-    <span class="soft-pill">🔬 Detail-Oriented</span>
-    <span class="soft-pill">👥 Team Leader</span>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-3 flex-row items-center gap-3">
+        <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0">
+          <!-- Bolt — Fast Learner -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Fast Learner</div>
+          <div class="text-xs opacity-55 leading-snug">Picks up new stacks quickly</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-3 flex-row items-center gap-3">
+        <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0">
+          <!-- Light bulb — Problem Solver -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Problem Solver</div>
+          <div class="text-xs opacity-55 leading-snug">Breaks complexity into steps</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-3 flex-row items-center gap-3">
+        <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0">
+          <!-- Arrow trending up — Self-Directed -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Self-Directed</div>
+          <div class="text-xs opacity-55 leading-snug">Ships without hand-holding</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-3 flex-row items-center gap-3">
+        <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0">
+          <!-- User group — Collaborative -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Collaborative</div>
+          <div class="text-xs opacity-55 leading-snug">Thrives in cross-functional teams</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-3 flex-row items-center gap-3">
+        <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0">
+          <!-- Magnifying glass — Detail-Oriented -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 10.607z" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Detail-Oriented</div>
+          <div class="text-xs opacity-55 leading-snug">Catches what others miss</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body p-3 flex-row items-center gap-3">
+        <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0">
+          <!-- Flag — Team Leader -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Team Leader</div>
+          <div class="text-xs opacity-55 leading-snug">Led teams from thesis to work</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── Key Achievements ── -->
@@ -146,7 +231,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="card bg-base-200 border border-base-300">
       <div class="card-body p-4">
         <div class="flex items-start gap-3">
-          <span class="text-2xl mt-0.5">🏆</span>
+          <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0 mt-0.5">
+            <!-- Academic cap — Best Thesis -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+            </svg>
+          </div>
           <div>
             <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">2026 · Academics</div>
             <div class="font-bold text-sm leading-snug">Best Thesis — BSCS Public Forum</div>
@@ -161,7 +251,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="card bg-base-200 border border-base-300">
       <div class="card-body p-4">
         <div class="flex items-start gap-3">
-          <span class="text-2xl mt-0.5">⬆️</span>
+          <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0 mt-0.5">
+            <!-- Arrow trending up — Promotion -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+            </svg>
+          </div>
           <div>
             <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">Professional</div>
             <div class="font-bold text-sm leading-snug">IT Team Leader — 8Con Academy</div>
@@ -176,7 +271,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="card bg-base-200 border border-base-300">
       <div class="card-body p-4">
         <div class="flex items-start gap-3">
-          <span class="text-2xl mt-0.5">🥉</span>
+          <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0 mt-0.5">
+            <!-- Code bracket — Java -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+          </div>
           <div>
             <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">Competition</div>
             <div class="font-bold text-sm leading-snug">Java Programming — 3rd Place</div>
@@ -191,7 +291,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="card bg-base-200 border border-base-300">
       <div class="card-body p-4">
         <div class="flex items-start gap-3">
-          <span class="text-2xl mt-0.5">🤖</span>
+          <div class="bg-base-100 border border-base-300 rounded-lg p-2 shrink-0 mt-0.5">
+            <!-- CPU chip — Robotics -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
+            </svg>
+          </div>
           <div>
             <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-0.5">2019 · Competition</div>
             <div class="font-bold text-sm leading-snug">Division Science Fair — Robotics Champion</div>
@@ -213,8 +318,5 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
   .abbr-chip {
     @apply font-semibold opacity-75;
-  }
-  .soft-pill {
-    @apply px-5 py-2.5 rounded-full bg-base-200 border border-base-300 text-sm font-medium tracking-wide;
   }
 </style>
