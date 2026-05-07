@@ -22,12 +22,18 @@ const { title, description, image = '/social_img.jpg', ogType = 'website' } = As
 
 <!-- Theme init: run before render to prevent flash -->
 <script is:inline>
-  // Apply saved theme immediately (prevents flash)
+  // Apply saved theme immediately (prevents flash on first load)
   document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'lofi');
 
-  // Click handler — added once, never stacks across page transitions
   if (!window.__themeReady) {
     window.__themeReady = true;
+
+    // Re-apply after every View Transition swap — new page HTML resets data-theme to default
+    document.addEventListener('astro:after-swap', function () {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'lofi');
+    });
+
+    // Toggle click handler
     document.addEventListener('click', function (e) {
       if (e.target.closest('#theme-toggle')) {
         const next = document.documentElement.getAttribute('data-theme') === 'dim' ? 'lofi' : 'dim';
