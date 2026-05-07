@@ -6,7 +6,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <div class="mb-6">
     <div class="text-sm uppercase tracking-wide opacity-60">Client Work · Frontend</div>
     <div class="text-4xl font-bold mt-1">8Con Academy</div>
-    <div class="text-xl mt-2 opacity-80">Official landing page for a Philippine tech academy</div>
+    <div class="text-xl mt-2 opacity-80">Official site for a forex trading school in Bulacan</div>
   </div>
 
   <div class="flex flex-wrap gap-3 mb-8">
@@ -16,20 +16,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <div class="text-2xl font-bold mb-3">About</div>
   <div class="mb-8 text-base text-justify">
-    The official marketing and enrollment site for <b>8Con Academy</b>, a software development and technology
-    academy in the Philippines. The site serves as the primary digital presence for the school —
-    prospective students land here to learn about programs, browse what the academy offers, and submit
-    enrollment inquiries. Built as a multi-page React SPA with a lightweight Express backend that handles
-    contact form submissions and routes emails to the admissions team.
+    The official marketing and enrollment site for <b>8Con Academy</b>, a forex derivatives trading school
+    based in Meycauayan, Bulacan, Philippines. The academy's mission is to produce a profitable forex trader
+    in every Filipino household through a structured three-level curriculum — from fundamentals to live
+    trading application. Their proprietary market scanner, <b>8ConEdge</b>, integrates macroeconomic data
+    and technical analysis to support student trading decisions — the same system I modelled my CS thesis on.
+  </div>
+
+  <div class="mb-8 text-base text-justify">
+    The site serves as the academy's primary digital presence: prospective students land here to explore the
+    curriculum, understand what each competency level covers, and submit enrollment inquiries. Built as a
+    multi-page React SPA with a lightweight Express backend that routes form submissions and file attachments
+    directly to the admissions team via email.
   </div>
 
   <div class="text-2xl font-bold mb-3">What's on the site</div>
   <ul class="list-disc mx-6 mb-8 grid gap-2 text-base">
-    <li><b>Multi-page SPA</b> — React Router DOM 7 handles client-side routing across program, about, and contact pages without full reloads</li>
-    <li><b>Enrollment inquiry form</b> — submissions processed by an Express backend using Nodemailer; file attachments supported via Multer</li>
-    <li><b>EmailJS integration</b> — client-side email fallback for lightweight contact forms</li>
-    <li><b>Icon system</b> — Lucide React throughout for consistent, lightweight SVG iconography</li>
-    <li><b>Smooth scroll</b> — polyfill-backed scroll behaviour across browsers</li>
+    <li><b>Multi-page SPA</b> — React Router DOM 7 handles client-side routing across program overview, about, and contact sections without page reloads</li>
+    <li><b>Curriculum presentation</b> — three competency levels (Basic, Common, Core) laid out clearly for prospective students</li>
+    <li><b>Enrollment inquiry form</b> — submissions processed server-side by an Express + Nodemailer backend; file attachments supported via Multer</li>
+    <li><b>EmailJS integration</b> — lightweight client-side email fallback for quick contact forms</li>
+    <li><b>Smooth scroll &amp; icon system</b> — polyfill-backed scroll behavior and Lucide React icons throughout</li>
   </ul>
 
   <div class="text-2xl font-bold mb-3">Tech stack</div>
@@ -39,19 +46,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <tr><td><b>Frontend</b></td><td>React 19 · Vite 6 · React Router DOM 7</td></tr>
         <tr><td><b>Icons</b></td><td>Lucide React</td></tr>
         <tr><td><b>Backend</b></td><td>Express 5 · Nodemailer · Multer (file uploads)</td></tr>
-        <tr><td><b>Email</b></td><td>EmailJS (client-side) + Nodemailer (server-side)</td></tr>
-        <tr><td><b>Build</b></td><td>Vite 6 with <code>@vitejs/plugin-react</code></td></tr>
-        <tr><td><b>Engagement</b></td><td>Client work — live institutional site for a real academy</td></tr>
+        <tr><td><b>Email delivery</b></td><td>EmailJS (client-side) + Nodemailer (server-side)</td></tr>
+        <tr><td><b>Build tooling</b></td><td>Vite 6 with <code>@vitejs/plugin-react</code> · ESLint</td></tr>
+        <tr><td><b>Engagement</b></td><td>Client work — live institutional site for a real school</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="text-2xl font-bold mb-3">Scoping note</div>
+  <div class="text-2xl font-bold mb-3">Context</div>
   <div class="mb-10 text-base text-justify opacity-80">
-    This is an institutional landing page built for a real client with a real audience — not a demo.
-    The Express backend runs alongside Vite in development (<code>concurrently</code>) and handles
-    form submissions server-side so enrollment inquiries reach the right people reliably.
-    Stack choices (React 19, Vite 6) kept the build modern while the Express + Nodemailer backend
-    avoided any reliance on third-party form services for mission-critical contact flows.
+    This project sits at an interesting intersection in my portfolio: 8Con Academy is the institution I'm
+    affiliated with, and their proprietary scanner — 8ConEdge — is the system my CS thesis (Edge) modelled.
+    Building the official site gave me a real client brief with real users: prospective traders researching
+    their first step into structured forex education. The Express + Nodemailer backend was chosen over
+    third-party form services to keep enrollment inquiries reliable and fully under the client's control.
   </div>
 </BaseLayout>
