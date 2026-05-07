@@ -24,43 +24,39 @@ const activeClass = "bg-base-300"; // For primary color replace with `active` cl
 </ul>
 
 <script is:inline define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
-  function initSidebar() {
-    const activeItemElem = document.getElementById(sideBarActiveItemID);
-    activeItemElem && activeItemElem.classList.add(activeClass);
+  const LIGHT = 'lofi';
+  const DARK  = 'dim';
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    const isDark = theme === DARK;
+    const moon  = document.getElementById('icon-moon');
+    const sun   = document.getElementById('icon-sun');
+    const label = document.getElementById('theme-label');
+    if (moon)  moon.classList.toggle('hidden', isDark);
+    if (sun)   sun.classList.toggle('hidden', !isDark);
+    if (label) label.textContent = isDark ? 'Light Mode' : 'Dark Mode';
   }
 
-  function initTheme() {
-    const LIGHT = 'lofi';
-    const DARK  = 'dim';
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      const isDark = theme === DARK;
-      const moon  = document.getElementById('icon-moon');
-      const sun   = document.getElementById('icon-sun');
-      const label = document.getElementById('theme-label');
-      if (moon)  moon.classList.toggle('hidden', isDark);
-      if (sun)   sun.classList.toggle('hidden', !isDark);
-      if (label) label.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    }
-
-    const btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-
-    // Sync icons to current theme
+  // Runs on every page load — syncs icons to saved theme
+  function init() {
+    const activeItemElem = document.getElementById(sideBarActiveItemID);
+    activeItemElem && activeItemElem.classList.add(activeClass);
     applyTheme(localStorage.getItem('theme') || LIGHT);
+  }
 
-    btn.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === DARK ? LIGHT : DARK;
-      applyTheme(next);
+  // Click listener added ONCE via event delegation — never stacks
+  if (!window.__themeListenerAdded) {
+    window.__themeListenerAdded = true;
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('#theme-toggle')) {
+        const next = document.documentElement.getAttribute('data-theme') === DARK ? LIGHT : DARK;
+        applyTheme(next);
+      }
     });
   }
 
-  initSidebar();
-  initTheme();
-  document.addEventListener('astro:page-load', () => {
-    initSidebar();
-    initTheme();
-  });
+  init();
+  document.addEventListener('astro:page-load', init);
 </script>
