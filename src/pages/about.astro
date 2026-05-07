@@ -1,5 +1,73 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const skills = [
+  {
+    category: "Languages",
+    items: [
+      { icon: "python",     label: "Python" },
+      { icon: "javascript", label: "JavaScript" },
+      { abbr: "SQL",        label: "SQL" },
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      { icon: "fastapi",   label: "FastAPI" },
+      { icon: "nodedotjs", label: "Node.js" },
+      { icon: "express",   label: "Express" },
+      { icon: "strapi",    label: "Strapi" },
+    ],
+  },
+  {
+    category: "Frontend",
+    items: [
+      { icon: "react",       label: "React" },
+      { icon: "htmx",        label: "HTMX" },
+      { icon: "tailwindcss", label: "Tailwind" },
+    ],
+  },
+  {
+    category: "Databases",
+    items: [
+      { icon: "postgresql", label: "PostgreSQL" },
+      { icon: "mysql",      label: "MySQL" },
+      { icon: "duckdb",     label: "DuckDB" },
+      { icon: "redis",      label: "Redis" },
+      { icon: "supabase",   label: "Supabase" },
+    ],
+  },
+  {
+    category: "Data & ML",
+    items: [
+      { icon: "pandas",      label: "pandas" },
+      { icon: "dbt",         label: "dbt" },
+      { icon: "scikitlearn", label: "scikit-learn" },
+      { icon: "streamlit",   label: "Streamlit" },
+      { abbr: "XGB",         label: "XGBoost" },
+      { abbr: "SHAP",        label: "SHAP" },
+    ],
+  },
+  {
+    category: "DevOps & Infra",
+    items: [
+      { icon: "docker",        label: "Docker" },
+      { icon: "githubactions", label: "GH Actions" },
+      { icon: "nginx",         label: "Nginx" },
+      { icon: "git",           label: "Git" },
+    ],
+  },
+  {
+    category: "Platforms & Tools",
+    items: [
+      { icon: "render",           label: "Render" },
+      { icon: "railway",          label: "Railway" },
+      { icon: "huggingface",      label: "Hugging Face" },
+      { icon: "visualstudiocode", label: "VS Code" },
+      { icon: "jupyter",          label: "Jupyter" },
+    ],
+  },
+];
 ---
 
 <BaseLayout title="About" sideBarActiveItemID="about">
@@ -32,24 +100,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="text-3xl w-full font-bold">Technical skills</div>
   </div>
 
-  <div class="overflow-x-auto mb-10">
-    <table class="table table-zebra">
-      <thead>
-        <tr>
-          <th>Area</th>
-          <th>Tools</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><b>Languages</b></td><td>Python · JavaScript · SQL</td></tr>
-        <tr><td><b>Backend</b></td><td>FastAPI · Node.js · Strapi</td></tr>
-        <tr><td><b>Frontend</b></td><td>HTMX · Tailwind CSS · HTML/CSS</td></tr>
-        <tr><td><b>Databases</b></td><td>PostgreSQL (Supabase) · DuckDB</td></tr>
-        <tr><td><b>Data &amp; ML</b></td><td>pandas · dbt · scikit-learn · XGBoost · SHAP · Streamlit</td></tr>
-        <tr><td><b>DevOps / Infra</b></td><td>GitHub Actions · Docker · Render · Vercel · Hugging Face Spaces</td></tr>
-        <tr><td><b>Tools</b></td><td>Git · VS Code · Jupyter</td></tr>
-      </tbody>
-    </table>
+  <div class="mb-10 space-y-6">
+    {skills.map(({ category, items }) => (
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest opacity-50 mb-3">{category}</p>
+        <div class="flex flex-wrap gap-4">
+          {items.map((item) => (
+            <div class="flex flex-col items-center gap-1.5 w-14">
+              <div class="bg-base-200 rounded-xl w-11 h-11 flex items-center justify-center">
+                {'icon' in item ? (
+                  <img
+                    src={`https://cdn.simpleicons.org/${item.icon}`}
+                    alt={item.label}
+                    class="w-6 h-6"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span class="text-[10px] font-bold">{item.abbr}</span>
+                )}
+              </div>
+              <span class="text-[10px] text-center leading-tight">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 
   <div class="mb-5">
@@ -80,13 +155,4 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     8Con Academy
   </div>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Contact</div>
-  </div>
-
-  <ul class="list-disc mx-6 mb-10 grid gap-2 text-base">
-    <li>📧 <a href="mailto:jam.macabata@outlook.com" class="link link-hover"><b>jam.macabata@outlook.com</b></a></li>
-    <li>💼 <a href="https://www.linkedin.com/in/jhamesandrewmacabata/" target="_blank" class="link link-hover"><b>LinkedIn</b></a></li>
-    <li>🐙 <a href="https://github.com/neuralxjam" target="_blank" class="link link-hover"><b>GitHub @neuralxjam</b></a></li>
-  </ul>
 </BaseLayout>
