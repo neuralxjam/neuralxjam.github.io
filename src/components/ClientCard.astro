@@ -4,11 +4,12 @@ export interface Props {
   desc: string;
   status: "Live" | "Building";
   stack?: string;
-  url?: string;       // live demo / external link
-  detailUrl?: string; // portfolio detail page
+  url?: string;        // live demo / external link
+  detailUrl?: string;  // portfolio detail page
+  stagingUrl?: string; // staging / preview environment
 }
 
-const { title, desc, status, stack, url, detailUrl } = Astro.props;
+const { title, desc, status, stack, url, detailUrl, stagingUrl } = Astro.props;
 const isLive = status === "Live";
 ---
 
@@ -22,11 +23,16 @@ const isLive = status === "Live";
     </div>
     <p class="text-sm opacity-75 leading-snug m-0 flex-1">{desc}</p>
     {stack && <div class="text-xs opacity-50 font-mono mt-1">{stack}</div>}
-    {isLive && (url || detailUrl) && (
+    {(isLive ? (url || detailUrl) : stagingUrl) && (
       <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-base-300">
         {url && (
           <a href={url} target="_blank" class="btn btn-xs btn-primary">
             Live site →
+          </a>
+        )}
+        {stagingUrl && (
+          <a href={stagingUrl} target="_blank" class="btn btn-xs btn-outline">
+            Staging →
           </a>
         )}
         {detailUrl && (
