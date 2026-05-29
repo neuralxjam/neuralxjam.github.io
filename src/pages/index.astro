@@ -9,11 +9,15 @@ import ClientCard from "../components/ClientCard.astro";
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Hi 👋</div>
     <div class="text-5xl font-bold">I'm Jhames Andrew Macabata</div>
-    <div class="text-3xl py-3 font-bold">Software Engineering · Data Engineering · AI/ML</div>
+    <div class="text-3xl py-3 font-bold">Software Engineering · Data Engineering · AI/ML · AI Automation</div>
     <div class="py-2">
       <text class="text-lg">
-        I build things that work in the real world — with deployed projects and client builds spanning full-stack web apps, data pipelines, and applied ML. Now looking for a team to grow with.
+        I build things that work in the real world — full-stack web apps, automated data pipelines, and deployed ML models. CS graduate, currently employed, and open to full-time roles in software engineering, data, and AI.
       </text>
+    </div>
+    <div class="inline-flex items-center gap-2 text-sm opacity-70 mb-4 mt-2">
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      Open to full-time roles — Software Engineering, Data, AI
     </div>
     <div class="mt-8">
       <a class="btn" href="mailto:jam.macabata@outlook.com">Get in Touch</a>
@@ -100,23 +104,5 @@ import ClientCard from "../components/ClientCard.astro";
     </div>
   </div>
 
-  <div class="mt-10 mb-8">
-    <div class="text-3xl w-full font-bold mb-2">What's next {"</>"}</div>
-    <p class="text-sm opacity-75 mb-5">Personal projects on the roadmap — each will graduate to Featured once shipped.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <UpcomingCard
-        title="WatchTower"
-        desc="Observability stack for self-hosted services — metrics, logs, and alerts layered onto containerized apps."
-        status="Planned"
-        stack="Prometheus · Grafana · Loki"
-      />
-      <UpcomingCard
-        title="InfraKit"
-        desc="Reusable IaC templates for shipping small production apps fast — DNS, edge routing, secrets, CI/CD."
-        status="Planned"
-        stack="Terraform · Cloudflare · GitHub Actions"
-      />
-    </div>
-  </div>
 
 </BaseLayout>

@@ -23,6 +23,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <div class="divider my-2"></div>
 
+  <!-- Summary -->
+  <div class="mb-6">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Summary</div>
+    <p class="text-sm opacity-75 leading-relaxed">
+      CS graduate with ~1 year of professional experience building and shipping full-stack web
+      applications, REST APIs, containerized backend services, data pipelines, and ML models.
+      Proven across the full development lifecycle — from system design to CI/CD and production
+      deployment. All major projects are live and deployed.
+    </p>
+  </div>
+
+  <div class="divider my-2"></div>
+
   <!-- Work Experience -->
   <div class="mb-6">
     <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Work Experience</div>
@@ -99,6 +112,33 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div>
         <div class="flex justify-between items-start flex-wrap gap-1">
           <div>
+            <div class="font-bold">CryptoPulse</div>
+            <div class="text-xs opacity-55 italic">Developer · Python · DuckDB · dbt · Streamlit · GitHub Actions · Parquet</div>
+          </div>
+          <a href="https://cryptopulse.streamlit.app" target="_blank" class="text-xs link link-hover opacity-50">cryptopulse.streamlit.app</a>
+        </div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>Automated ETL pipeline running every 6 hours via GitHub Actions cron — fetches top-100 crypto market data, writes Parquet snapshots, loads into DuckDB, runs dbt transformations, serves a live Streamlit dashboard.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">StaySure — Hotel Cancellation Predictor</div>
+            <div class="text-xs opacity-55 italic">Developer · Python · scikit-learn · XGBoost · SHAP · Gradio</div>
+          </div>
+          <a href="https://huggingface.co/spaces/neuralxjam/staysure" target="_blank" class="text-xs link link-hover opacity-50">huggingface.co/spaces/neuralxjam/staysure</a>
+        </div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>Trained on 119,390 hotel bookings. Best model: Random Forest — F1=0.85, AUC=0.958, Accuracy=89%.</li>
+          <li>Compared 3 baselines (LR, XGBoost, RF). Added SHAP explainability layer. Deployed on Hugging Face Spaces.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
             <div class="font-bold">8Con Academy Website — Internship Project</div>
             <div class="text-xs opacity-55 italic">Team Lead Developer · JavaScript · HTML5 · CSS3 · SMTP</div>
           </div>
@@ -112,7 +152,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div>
         <div class="flex justify-between items-start flex-wrap gap-1">
           <div>
-            <div class="font-bold">J.Kloting Website — Client Project</div>
+            <div class="font-bold">J.Kloting Website + Dashboard — Client Project</div>
             <div class="text-xs opacity-55 italic">Developer · HTML5 · CSS3 · JavaScript · AJAX · Next.js · TypeScript · Supabase</div>
           </div>
           <a href="https://jkloting.store" target="_blank" class="text-xs link link-hover opacity-50">jkloting.store</a>
@@ -122,13 +162,39 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </ul>
       </div>
 
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">PCCI Membership Platform — Client Project</div>
+            <div class="text-xs opacity-55 italic">Developer · Laravel 12 · PostgreSQL · Sanctum · Tailwind</div>
+          </div>
+          <a href="https://pcci-frontend-staging.onrender.com" target="_blank" class="text-xs link link-hover opacity-50">pcci-frontend-staging.onrender.com (staging)</a>
+        </div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>Membership management system for a Philippine chamber of commerce — role-based dues tracking, multi-channel payments, and automated notifications. Currently in development.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">Roos & Lyka Wedding RSVP — Event Site</div>
+            <div class="text-xs opacity-55 italic">Developer · HTML5 · CSS3 · JavaScript</div>
+          </div>
+          <a href="https://excroosivelymeantforlyka.netlify.app" target="_blank" class="text-xs link link-hover opacity-50">excroosivelymeantforlyka.netlify.app</a>
+        </div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>Custom wedding RSVP page for a live event. Statically deployed on Netlify.</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
   <div class="divider my-2"></div>
 
   <!-- Education -->
-  <div class="mb-6">
+  <div class="mb-10">
     <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Education</div>
 
     <div class="space-y-4">
@@ -144,16 +210,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <li>2026 Computer Science Best Thesis Award</li>
         </ul>
       </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">BS Electrical Engineering (transferred to CS)</div>
+            <div class="text-sm opacity-60">Polytechnic University of the Philippines, Sta. Mesa</div>
+          </div>
+          <div class="text-sm opacity-50">Aug 2020 – Feb 2022</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="divider my-2"></div>
-
-  <!-- Skills -->
-  <div class="mb-6">
-    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Skills</div>
-
-    <div class="text-sm opacity-75 space-y-1.5">
-      <div><span class="font-semibold opacity-100">Languages:</span> Python · JavaScript · TypeScript · SQL · Java · PHP</div>
-      <div><span class="font-semibold opacity-100">Backend:</span> FastAPI · Node.js · Express 5 · Flask</div>
-      <div><span class="font-semibold opacity-100">Frontend:</span> React 19 · HTMX · Tailwind
+</BaseLayout>
