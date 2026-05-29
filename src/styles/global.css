@@ -2,24 +2,15 @@
     display: none;
 }
 
-/* ── Sidebar active nav item — glow effect ── */
+/* ── Sidebar active nav item — left border indicator ── */
+.menu li:has(> .nav-active) {
+  border-left: 3px solid currentColor;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
 .nav-active {
   font-weight: 700 !important;
-}
-
-/* Light mode: subtle dark glow */
-[data-theme="lofi"] .nav-active {
-  text-shadow:
-    0 0 6px rgba(0, 0, 0, 0.25),
-    0 0 14px rgba(0, 0, 0, 0.12);
-}
-
-/* Dark mode: bright white glow */
-[data-theme="dim"] .nav-active {
-  text-shadow:
-    0 0 6px rgba(255, 255, 255, 0.9),
-    0 0 14px rgba(255, 255, 255, 0.45),
-    0 0 28px rgba(255, 255, 255, 0.2);
+  padding-left: calc(1rem - 3px) !important;
 }
 
 /* ── Dark mode badge overrides ── */
