@@ -21,45 +21,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </a>
   </div>
 
-  <!-- Summary -->
-  <div class="mb-6 text-sm opacity-80 leading-relaxed">
-    Computer Science graduate building a career at the intersection of software engineering, data, and AI — fields
-    I find genuinely exciting because they create real-world impact. I am currently expanding my expertise in
-    backend development, data engineering, and machine learning through hands-on projects and continuous learning.
-  </div>
-
   <div class="divider my-2"></div>
 
   <!-- Work Experience -->
   <div class="mb-6">
     <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Work Experience</div>
 
-    <div class="mb-5">
-      <div class="flex justify-between items-start flex-wrap gap-1 mb-2">
-        <div>
-          <div class="font-bold">Software / Web Developer</div>
-          <div class="text-sm opacity-60">8Con Academy</div>
-        </div>
-        <div class="text-sm opacity-50">June 2025 – Present</div>
-      </div>
-      <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1">
-        <li>Developed and maintained web-based systems and automation tools to support business operations and improve workflow efficiency.</li>
-        <li>Led technical implementation and deployment processes for company websites and internal systems using modern web technologies.</li>
-        <li>Collaborated with team members and stakeholders to deliver scalable solutions.</li>
-      </ul>
-    </div>
-
     <div class="mb-2">
       <div class="flex justify-between items-start flex-wrap gap-1 mb-2">
         <div>
-          <div class="font-bold">CS Intern</div>
+          <div class="font-bold">Software Developer Intern / Team Lead</div>
           <div class="text-sm opacity-60">8Con Academy</div>
         </div>
-        <div class="text-sm opacity-50">May 2025 – June 2025</div>
+        <div class="text-sm opacity-50">May 2025 – Present</div>
       </div>
       <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1">
-        <li>Assisted in frontend and backend development tasks for web-based projects using modern development tools and frameworks.</li>
-        <li>Supported debugging, testing, and system troubleshooting to improve application functionality and user experience.</li>
+        <li>Developed and maintained web-based systems and automation tools supporting business operations.</li>
+        <li>Built automated lead capture pipeline — website form submissions are routed and logged to a CRM in real time.</li>
+        <li>Led frontend and backend development tasks across multiple web projects.</li>
+        <li>Produced technical documentation including system flowcharts, code comments, and deployment procedures.</li>
+        <li>Collaborated with team members and stakeholders to deliver scalable solutions.</li>
       </ul>
     </div>
   </div>
@@ -76,13 +57,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="flex justify-between items-start flex-wrap gap-1">
           <div>
             <div class="font-bold">8Con Edge — Thesis Project</div>
-            <div class="text-xs opacity-55 italic">Lead Developer</div>
+            <div class="text-xs opacity-55 italic">Lead Developer · React 19 · Express 5 · Flask · MySQL · Docker</div>
           </div>
-          <a href="https://8conedge.com" target="_blank" class="text-xs link link-hover opacity-50">www.8conedge.com</a>
+          <a href="https://8conedge.com" target="_blank" class="text-xs link link-hover opacity-50">8conedge.com</a>
         </div>
         <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
-          <li>Designed a 9-indicator consensus engine with ML-augmented signals.</li>
-          <li>Built a forex fundamental analysis decision support system and deployed to production with RBAC.</li>
+          <li>Full-stack forex trading decision support system used by 20–50 students.</li>
+          <li>ML-powered pair-ranking replaced a fully manual process — reduced currency analysis time from hours to minutes, surfacing strength/weakness scores to aid trade bias decisions.</li>
+          <li>Features role-based and tier-based access control. Deployed to production.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">JobTrail</div>
+            <div class="text-xs opacity-55 italic">Developer · FastAPI · PostgreSQL · HTMX · Tailwind · Supabase Auth · GitHub Actions</div>
+          </div>
+          <a href="https://jobtrail-0gza.onrender.com" target="_blank" class="text-xs link link-hover opacity-50">jobtrail-0gza.onrender.com</a>
+        </div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>Job application tracker with magic-link auth, inline editing, status filtering, and live dashboard.</li>
+          <li>Includes 10 pytest tests covering CRUD, auth guards, and user isolation. Full CI/CD pipeline on every push.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">MiniLink</div>
+            <div class="text-xs opacity-55 italic">Developer · FastAPI · PostgreSQL · Redis · Docker · Railway · GitHub Actions</div>
+          </div>
+          <a href="https://minilink-production.up.railway.app" target="_blank" class="text-xs link link-hover opacity-50">minilink-production.up.railway.app</a>
+        </div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>Self-hosted URL shortener with redirect analytics. Multi-stage Docker build (~150MB image), Redis read-through cache with 24h TTL.</li>
+          <li>Full CI/CD pipeline — lint → test → build → push to GHCR → Railway autodeploy.</li>
         </ul>
       </div>
 
@@ -90,40 +100,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="flex justify-between items-start flex-wrap gap-1">
           <div>
             <div class="font-bold">8Con Academy Website — Internship Project</div>
-            <div class="text-xs opacity-55 italic">Team Lead Developer</div>
+            <div class="text-xs opacity-55 italic">Team Lead Developer · JavaScript · HTML5 · CSS3 · SMTP</div>
           </div>
-          <a href="https://8conacademy.com" target="_blank" class="text-xs link link-hover opacity-50">www.8conacademy.com</a>
+          <a href="https://8conacademy.com" target="_blank" class="text-xs link link-hover opacity-50">8conacademy.com</a>
         </div>
         <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
-          <li>Developed a full-stack marketing platform for a forex trading school.</li>
-          <li>Integrated Nodemailer for transactional emails delivering a complete lead-capture workflow.</li>
+          <li>Full-stack web platform with SMTP-based transactional email, form validation, and database-connected lead capture workflows.</li>
         </ul>
       </div>
 
       <div>
         <div class="flex justify-between items-start flex-wrap gap-1">
           <div>
-            <div class="font-bold">Jkloting Website — Client Project</div>
-            <div class="text-xs opacity-55 italic">Developer</div>
+            <div class="font-bold">J.Kloting Website — Client Project</div>
+            <div class="text-xs opacity-55 italic">Developer · HTML5 · CSS3 · JavaScript · AJAX · Next.js · TypeScript · Supabase</div>
           </div>
-          <a href="https://jkloting.store" target="_blank" class="text-xs link link-hover opacity-50">www.jkloting.store</a>
+          <a href="https://jkloting.store" target="_blank" class="text-xs link link-hover opacity-50">jkloting.store</a>
         </div>
         <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
-          <li>Built and deployed a marketing and quote-request site for a custom apparel business.</li>
-          <li>Implemented AJAX quote forms via Web3Forms with a fully serverless, zero-backend architecture.</li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="flex justify-between items-start flex-wrap gap-1">
-          <div>
-            <div class="font-bold">StaySure — Hotel Cancellation Predictor</div>
-            <div class="text-xs opacity-55 italic">Developer</div>
-          </div>
-          <a href="https://huggingface.co/spaces/neuralxjam/staysure" target="_blank" class="text-xs link link-hover opacity-50">huggingface.co/spaces/neuralxjam/staysure</a>
-        </div>
-        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
-          <li>Trained a Random Forest classifier on 119,390 hotel bookings achieving F1 = 0.85 and AUC = 0.958 across LR, RF, and XGBoost baselines.</li>
+          <li>Client-facing e-commerce site with dynamic form handling and a separate admin dashboard built in Next.js with Supabase.</li>
         </ul>
       </div>
 
@@ -137,34 +132,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Education</div>
 
     <div class="space-y-4">
-      <div class="flex justify-between items-start flex-wrap gap-1">
-        <div>
-          <div class="font-bold">Bachelor of Science in Computer Science</div>
-          <div class="text-sm opacity-60">Pambayang Dalubhasaan ng Marilao</div>
+      <div>
+        <div class="flex justify-between items-start flex-wrap gap-1">
+          <div>
+            <div class="font-bold">Bachelor of Science in Computer Science</div>
+            <div class="text-sm opacity-60">Pambayang Dalubhasaan ng Marilao</div>
+          </div>
+          <div class="text-sm opacity-50">August 2022 – May 2026</div>
         </div>
-        <div class="text-sm opacity-50">June 2022 – May 2026</div>
-      </div>
-      <div class="flex justify-between items-start flex-wrap gap-1">
-        <div>
-          <div class="font-bold">Bachelor of Science in Electrical Engineering</div>
-          <div class="text-sm opacity-60">Polytechnic University of the Philippines — Sta. Mesa Campus</div>
-        </div>
-        <div class="text-sm opacity-50">Aug 2020 – Feb 2022</div>
+        <ul class="list-disc list-inside text-sm opacity-75 space-y-1 ml-1 mt-1">
+          <li>2026 Computer Science Best Thesis Award</li>
+        </ul>
       </div>
     </div>
   </div>
 
   <div class="divider my-2"></div>
 
-  <!-- Achievements -->
-  <div class="mb-10">
-    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">Key Achievements</div>
-    <ul class="list-disc list-inside text-sm opacity-75 space-y-1.5 ml-1">
-      <li>Best Thesis — 2026 BSCS Public Forum (8ConEdge, Group Leader)</li>
-      <li>Software / Web Developer — 8Con Academy (promoted from CS Intern)</li>
-      <li>3rd Place — Java Programming Competition</li>
-      <li>Champion — 2019 Division Science Fair, Robotics Team Category (Team Leader)</li>
-    </ul>
-  </div>
+  <!-- Skills -->
+  <div class="mb-6">
+    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Skills</div>
 
-</BaseLayout>
+    <div class="text-sm opacity-75 space-y-1.5">
+      <div><span class="font-semibold opacity-100">Languages:</span> Python · JavaScript · TypeScript · SQL · Java · PHP</div>
+      <div><span class="font-semibold opacity-100">Backend:</span> FastAPI · Node.js · Express 5 · Flask</div>
+      <div><span class="font-semibold opacity-100">Frontend:</span> React 19 · HTMX · Tailwind
