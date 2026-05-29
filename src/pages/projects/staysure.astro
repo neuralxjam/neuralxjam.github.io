@@ -1,8 +1,10 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BackToProjects from "../../components/BackToProjects.astro";
 ---
 
 <BaseLayout title="StaySure" sideBarActiveItemID="projects">
+  <BackToProjects />
   <div class="mb-6">
     <div class="text-sm uppercase tracking-wide opacity-60">AI / Machine Learning</div>
     <div class="text-4xl font-bold mt-1">StaySure</div>
@@ -10,8 +12,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   </div>
 
   <div class="flex flex-wrap gap-3 mb-8">
-    <a href="https://huggingface.co/spaces/neuralxjam/staysure" target="_blank" class="btn btn-primary">Live demo →</a>
-    <a href="https://github.com/neuralxjam/staysure" target="_blank" class="btn btn-outline">View source →</a>
+    <a href="https://huggingface.co/spaces/neuralxjam/staysure" target="_blank" class="btn btn-primary">Live demo â†’</a>
+    <a href="https://github.com/neuralxjam/staysure" target="_blank" class="btn btn-outline">View source â†’</a>
   </div>
 
   <div class="stats stats-vertical lg:stats-horizontal shadow w-full mb-8">
@@ -34,8 +36,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <div class="text-2xl font-bold mb-3">Problem</div>
   <div class="mb-8 text-base text-justify">
-    Hotel booking cancellations cost the hospitality industry billions annually. If a hotel could predict —
-    at booking time — which reservations are likely to cancel, they could adjust pricing, overbooking policies,
+    Hotel booking cancellations cost the hospitality industry billions annually. If a hotel could predict â€”
+    at booking time â€” which reservations are likely to cancel, they could adjust pricing, overbooking policies,
     and staffing accordingly.
   </div>
 
@@ -43,7 +45,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <div class="mb-8 text-base text-justify">
     An end-to-end ML project trained on 119,390 real hotel bookings. Given details like lead time,
     deposit type, booking channel, and previous cancellations, the model predicts whether a booking
-    will be cancelled — and <i>explains why</i> using SHAP feature importance values. Deployed as an
+    will be cancelled â€” and <i>explains why</i> using SHAP feature importance values. Deployed as an
     interactive Gradio demo on Hugging Face Spaces.
   </div>
 
@@ -51,8 +53,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <div class="overflow-x-auto mb-8">
     <table class="table table-zebra">
       <tbody>
-        <tr><td><b>EDA</b></td><td>Jupyter · pandas · seaborn</td></tr>
-        <tr><td><b>Modeling</b></td><td>scikit-learn Pipelines · LogisticRegression · RandomForest · XGBoost</td></tr>
+        <tr><td><b>EDA</b></td><td>Jupyter Â· pandas Â· seaborn</td></tr>
+        <tr><td><b>Modeling</b></td><td>scikit-learn Pipelines Â· LogisticRegression Â· RandomForest Â· XGBoost</td></tr>
         <tr><td><b>Hyperparameter tuning</b></td><td>GridSearchCV (3-fold)</td></tr>
         <tr><td><b>Experiment tracking</b></td><td>MLflow (local file backend)</td></tr>
         <tr><td><b>Explainability</b></td><td>SHAP summary + per-prediction force plots</td></tr>
@@ -63,24 +65,24 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <div class="text-2xl font-bold mb-3">ML pipeline</div>
   <pre class="bg-base-300 p-4 rounded-lg overflow-x-auto mb-8 text-sm"><code>Raw CSV (119,390 rows)
-  │
-  ▼
+  â”‚
+  â–¼
 EDA notebook
-  │  leakage check, target distribution, correlations
-  ▼
+  â”‚  leakage check, target distribution, correlations
+  â–¼
 sklearn Pipeline (ColumnTransformer)
-  │  impute nulls → encode categoricals → scale numerics
-  ▼
-Model comparison (LR baseline → RF → XGBoost)
-  │  GridSearchCV, logged to MLflow
-  ▼
-Best model (Random Forest) → test set evaluation
-  │  confusion matrix, ROC-AUC, F1
-  ▼
-SHAP analysis → feature importance
-  │
-  ▼
-Gradio app → Hugging Face Spaces (public demo)</code></pre>
+  â”‚  impute nulls â†’ encode categoricals â†’ scale numerics
+  â–¼
+Model comparison (LR baseline â†’ RF â†’ XGBoost)
+  â”‚  GridSearchCV, logged to MLflow
+  â–¼
+Best model (Random Forest) â†’ test set evaluation
+  â”‚  confusion matrix, ROC-AUC, F1
+  â–¼
+SHAP analysis â†’ feature importance
+  â”‚
+  â–¼
+Gradio app â†’ Hugging Face Spaces (public demo)</code></pre>
 
   <div class="text-2xl font-bold mb-3">Model results</div>
   <div class="overflow-x-auto mb-8">
@@ -110,8 +112,8 @@ Gradio app → Hugging Face Spaces (public demo)</code></pre>
 
   <div class="text-2xl font-bold mb-3">Selected lessons</div>
   <ul class="list-disc mx-6 mb-10 grid gap-2 text-base">
-    <li><b>EDA leakage hunt comes first.</b> Several columns in the dataset (e.g. <code>reservation_status</code>) effectively encode the target — using them inflates accuracy to 100%. Removing them is the difference between a "model" and a lookup table.</li>
-    <li><b>Class imbalance ≠ broken metrics.</b> ~37% cancellation rate is mild but not balanced. F1 over accuracy as the primary metric — a 63%-accurate model that always predicts "not cancelled" is useless.</li>
+    <li><b>EDA leakage hunt comes first.</b> Several columns in the dataset (e.g. <code>reservation_status</code>) effectively encode the target â€” using them inflates accuracy to 100%. Removing them is the difference between a "model" and a lookup table.</li>
+    <li><b>Class imbalance â‰  broken metrics.</b> ~37% cancellation rate is mild but not balanced. F1 over accuracy as the primary metric â€” a 63%-accurate model that always predicts "not cancelled" is useless.</li>
     <li><b>Pipelines &gt; manual preprocessing.</b> sklearn <code>ColumnTransformer</code> + <code>Pipeline</code> guarantees test-set transformations match the training-set transformations. A whole class of "works in notebook, fails in production" bugs disappears.</li>
     <li><b>SHAP explanations are the deploy unlock.</b> Showing <i>why</i> a booking is flagged turns "the AI says no" into a tool a hotel manager would actually trust.</li>
   </ul>

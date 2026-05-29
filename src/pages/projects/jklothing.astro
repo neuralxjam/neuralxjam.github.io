@@ -1,22 +1,24 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BackToProjects from "../../components/BackToProjects.astro";
 ---
 
 <BaseLayout title="J.Kloting Dashboard" sideBarActiveItemID="projects">
+  <BackToProjects />
   <div class="mb-6">
-    <div class="text-sm uppercase tracking-wide opacity-60">Client Project · Full-Stack · Internal Ops Tool</div>
+    <div class="text-sm uppercase tracking-wide opacity-60">Client Project Â· Full-Stack Â· Internal Ops Tool</div>
     <div class="text-4xl font-bold mt-1">J.Kloting Dashboard</div>
     <div class="text-xl mt-2 opacity-80">Operations & Finance Management System for a Custom Apparel Business</div>
   </div>
 
   <div class="flex flex-wrap gap-3 mb-8">
-    <a href="https://jklothing-dashboard.vercel.app" target="_blank" class="btn btn-primary">Live app →</a>
+    <a href="https://jklothing-dashboard.vercel.app" target="_blank" class="btn btn-primary">Live app â†’</a>
   </div>
 
   <div class="text-2xl font-bold mb-3">Problem</div>
   <div class="mb-8 text-base text-justify">
     The same apparel business behind the <a href="/projects/jkloting" class="link">J.Kloting marketing site</a>
-    was running its day-to-day operations — orders, production costs, cash flow, and inventory — out of
+    was running its day-to-day operations â€” orders, production costs, cash flow, and inventory â€” out of
     spreadsheets and chat messages. There was no single source of truth for what had been ordered, what each
     job actually cost, how much cash was on hand across accounts, or whether BIR tax filing deadlines were
     coming up. The owner (acting COO) needed a private dashboard to run the business from one place, not a
@@ -36,13 +38,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <div class="overflow-x-auto mb-8">
     <table class="table table-zebra">
       <tbody>
-        <tr><td><b>Framework</b></td><td>Next.js 16 (App Router) · React 19 · TypeScript</td></tr>
+        <tr><td><b>Framework</b></td><td>Next.js 16 (App Router) Â· React 19 Â· TypeScript</td></tr>
         <tr><td><b>Database & Auth</b></td><td>Supabase (PostgreSQL + Auth via <code>@supabase/ssr</code>)</td></tr>
         <tr><td><b>Forms & Validation</b></td><td>react-hook-form + Zod schemas (<code>@hookform/resolvers</code>)</td></tr>
         <tr><td><b>Charts</b></td><td>Recharts</td></tr>
-        <tr><td><b>Styling</b></td><td>Tailwind CSS v4 · lucide-react icons</td></tr>
+        <tr><td><b>Styling</b></td><td>Tailwind CSS v4 Â· lucide-react icons</td></tr>
         <tr><td><b>Email</b></td><td>Nodemailer over Gmail SMTP</td></tr>
-        <tr><td><b>Scheduling</b></td><td>GitHub Actions cron → secured Vercel API route</td></tr>
+        <tr><td><b>Scheduling</b></td><td>GitHub Actions cron â†’ secured Vercel API route</td></tr>
         <tr><td><b>Deploy</b></td><td>Vercel</td></tr>
       </tbody>
     </table>
@@ -55,7 +57,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <tr><th>Module</th><th>What it does</th></tr>
       </thead>
       <tbody>
-        <tr><td><b>Orders</b></td><td>Create → edit → complete workflow, with CSV export of order history</td></tr>
+        <tr><td><b>Orders</b></td><td>Create â†’ edit â†’ complete workflow, with CSV export of order history</td></tr>
         <tr><td><b>Costs</b></td><td>Track production/material costs and attribute them to jobs</td></tr>
         <tr><td><b>Cash flow</b></td><td>Ledger with recurring entries, account transfers, manual adjustments, and exportable statements</td></tr>
         <tr><td><b>Inventory</b></td><td>Track stock levels for materials and finished goods</td></tr>
@@ -68,7 +70,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <div class="text-2xl font-bold mb-3">Architecture</div>
   <div class="mb-8 text-base text-justify opacity-80">
-    Next.js App Router with a route-group split — an <code>(auth)</code> group for login and an <code>(app)</code>
+    Next.js App Router with a route-group split â€” an <code>(auth)</code> group for login and an <code>(app)</code>
     group for the gated dashboard. Supabase handles Postgres + auth, wired through <code>@supabase/ssr</code> for
     server-side session handling. Mutations run through server actions / API routes validated by Zod before they
     hit the database. The tax-reminder automation is a GitHub Actions workflow that runs daily at 09:00 Manila
@@ -78,9 +80,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <div class="text-2xl font-bold mb-3">Selected lessons</div>
   <ul class="list-disc mx-6 mb-10 grid gap-2 text-base">
-    <li><b>External cron beats platform cron for control.</b> Driving the tax reminders from GitHub Actions (rather than Vercel Cron) gave a free schedule, a manual "run now" trigger with a test-date override for QA, and run logs — without coupling the schedule to the hosting plan.</li>
-    <li><b>Secure the cron endpoint, not just the UI.</b> A public API route that sends email is an abuse vector. Gating <code>/api/cron/tax-reminders</code> behind a shared <code>CRON_SECRET</code> header was essential — auth on the dashboard pages alone wouldn't have protected it.</li>
+    <li><b>External cron beats platform cron for control.</b> Driving the tax reminders from GitHub Actions (rather than Vercel Cron) gave a free schedule, a manual "run now" trigger with a test-date override for QA, and run logs â€” without coupling the schedule to the hosting plan.</li>
+    <li><b>Secure the cron endpoint, not just the UI.</b> A public API route that sends email is an abuse vector. Gating <code>/api/cron/tax-reminders</code> behind a shared <code>CRON_SECRET</code> header was essential â€” auth on the dashboard pages alone wouldn't have protected it.</li>
     <li><b>Zod schemas as the single contract.</b> Reusing the same Zod schema for client-side react-hook-form validation and server-side checks removed a whole class of "valid in the form, invalid at the DB" bugs.</li>
-    <li><b>Financial data needs an audit-friendly model.</b> Splitting cash flow into recurring entries, transfers, and adjustments — instead of one flat "transactions" table — made statements reconcile cleanly and kept corrections traceable.</li>
+    <li><b>Financial data needs an audit-friendly model.</b> Splitting cash flow into recurring entries, transfers, and adjustments â€” instead of one flat "transactions" table â€” made statements reconcile cleanly and kept corrections traceable.</li>
   </ul>
 </BaseLayout>
