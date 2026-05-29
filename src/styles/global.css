@@ -13,6 +13,11 @@
   padding-left: calc(1rem - 3px) !important;
 }
 
+/* ── CDN icon images: invert to white in dark mode ── */
+[data-theme="dim"] .cdn-icon {
+  filter: invert(1);
+}
+
 /* ── Dark mode badge overrides ── */
 
 /* Featured project badge → yellow in dark mode */
