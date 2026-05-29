@@ -7,7 +7,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <div>
     <div class="text-3xl w-full font-bold mb-2">Projects</div>
     <div class="mb-5 text-base">
-      Nine projects spanning full-stack web, data engineering, applied ML, DevOps, and client work.
+      Ten projects spanning full-stack web, data engineering, applied ML, DevOps, and client work.
       Each is shipped, deployed, and runnable today — links below.
     </div>
   </div>
@@ -103,25 +103,11 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <div class="divider my-8"></div>
 
   <div>
-    <div class="text-2xl w-full font-bold mb-2">Earlier work</div>
+    <div class="text-2xl w-full font-bold mb-2">Client Work</div>
     <div class="mb-4 text-base opacity-80">
-      Selected client work from before the current portfolio sprint.
+      Real projects shipped for real businesses — live and in production.
     </div>
   </div>
-
-  <HorizontalCard
-    title="J.Kloting — Custom Apparel Printer"
-    desc="Two-page marketing + quote-system site for a Bulacan-based custom apparel printer (DTF / sublimation / silk-screen). Bootstrap 4 + jQuery, AJAX quote forms via Web3Forms, deployed on Cloudflare Workers at jkloting.store."
-    url="/projects/jkloting"
-    target="_self"
-    badge="Client Work · jQuery · Bootstrap 4"
-  />
-  <div class="text-sm mt-1 mb-2">
-    <a href="https://jkloting.store/" target="_blank" class="link link-hover">Live site →</a>
-    <span class="mx-2">·</span>
-    <a href="https://github.com/neuralxjam/jkloting_website" target="_blank" class="link link-hover">View source →</a>
-  </div>
-  <div class="divider my-0"></div>
 
   <HorizontalCard
     title="PCCI Membership Platform"
@@ -132,6 +118,32 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   />
   <div class="text-sm mt-1 mb-2">
     <a href="https://pcci-frontend-staging.onrender.com" target="_blank" class="link link-hover">Staging →</a>
+  </div>
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="J.Kloting — Apparel Marketing & Quote Site"
+    desc="Two-page marketing + quote-system site for a Bulacan-based custom apparel printer (DTF / sublimation / silk-screen). Bootstrap 4 + jQuery, AJAX quote forms via Web3Forms, deployed on Cloudflare Workers at jkloting.store."
+    url="/projects/jkloting"
+    target="_self"
+    badge="Client · jQuery · Bootstrap 4"
+  />
+  <div class="text-sm mt-1 mb-2">
+    <a href="https://jkloting.store/" target="_blank" class="link link-hover">Live site →</a>
+    <span class="mx-2">·</span>
+    <a href="https://github.com/neuralxjam/jkloting_website" target="_blank" class="link link-hover">View source →</a>
+  </div>
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="J.Kloting Dashboard — Operations & Finance"
+    desc="Internal ops tool for the same apparel business: orders, production costs, cash-flow ledger, inventory, and fund allocations — plus automated BIR tax-filing reminder emails via a daily GitHub Actions cron. Next.js 16 · React 19 · Supabase · Recharts."
+    url="/projects/jklothing"
+    target="_self"
+    badge="Client · Next.js · Supabase"
+  />
+  <div class="text-sm mt-1 mb-2">
+    <a href="https://jklothing-dashboard.vercel.app" target="_blank" class="link link-hover">Live app →</a>
   </div>
   <div class="divider my-0"></div>
 

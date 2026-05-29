@@ -3,24 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const certs = [
   // Data & Python
-  { group: "Data & Python", title: "Data Manipulation with pandas",    slug: "data-manipulation-with-pandas" },
-  { group: "Data & Python", title: "Intermediate Python",              slug: "intermediate-python" },
-  { group: "Data & Python", title: "Introduction to Python",           slug: "intro-python" },
-  { group: "Data & Python", title: "Intermediate SQL",                 slug: "intermediate-sql" },
-  { group: "Data & Python", title: "Introduction to SQL",              slug: "intro-sql" },
-  { group: "Data & Python", title: "Understanding Machine Learning",   slug: "understanding-ml" },
+  { group: "Data & Python", title: "Data Manipulation with pandas",    slug: "data-manipulation-with-pandas", date: "Dec 2024" },
+  { group: "Data & Python", title: "Intermediate Python",              slug: "intermediate-python", date: "Dec 2024" },
+  { group: "Data & Python", title: "Introduction to Python",           slug: "intro-python", date: "Nov 2024" },
+  { group: "Data & Python", title: "Intermediate SQL",                 slug: "intermediate-sql", date: "Nov 2025" },
+  { group: "Data & Python", title: "Introduction to SQL",              slug: "intro-sql", date: "Nov 2025" },
+  { group: "Data & Python", title: "Understanding Machine Learning",   slug: "understanding-ml", date: "Feb 2026" },
   // DevOps & Tools
-  { group: "DevOps & Tools", title: "Intermediate Git",                slug: "intermediate-git" },
-  { group: "DevOps & Tools", title: "Introduction to Git",             slug: "introduction-to-git" },
-  { group: "DevOps & Tools", title: "Intermediate GitHub Concepts",    slug: "intermediate-github-concepts" },
-  { group: "DevOps & Tools", title: "Introduction to GitHub Concepts", slug: "introduction-to-github-concepts" },
+  { group: "DevOps & Tools", title: "Intermediate Git",                slug: "intermediate-git", date: "Mar 2026" },
+  { group: "DevOps & Tools", title: "Introduction to Git",             slug: "introduction-to-git", date: "Feb 2026" },
+  { group: "DevOps & Tools", title: "Intermediate GitHub Concepts",    slug: "intermediate-github-concepts", date: "Mar 2026" },
+  { group: "DevOps & Tools", title: "Introduction to GitHub Concepts", slug: "introduction-to-github-concepts", date: "Mar 2026" },
   // AI & GenAI
-  { group: "AI & GenAI", title: "Generative AI Concepts",             slug: "generative-ai-concepts" },
-  { group: "AI & GenAI", title: "Large Language Models (LLMs) Concepts", slug: "llm-concepts" },
-  { group: "AI & GenAI", title: "Introduction to AI Agents",          slug: "introduction-to-ai-agents" },
-  { group: "AI & GenAI", title: "Introduction to AI for Work",        slug: "introduction-to-ai-for-work" },
-  { group: "AI & GenAI", title: "AI Ethics",                          slug: "ai-ethics" },
-  { group: "AI & GenAI", title: "Understanding ChatGPT",              slug: "understanding-chatgpt" },
+  { group: "AI & GenAI", title: "Generative AI Concepts",             slug: "generative-ai-concepts", date: "Feb 2026" },
+  { group: "AI & GenAI", title: "Large Language Models (LLMs) Concepts", slug: "llm-concepts", date: "Feb 2026" },
+  { group: "AI & GenAI", title: "Introduction to AI Agents",          slug: "introduction-to-ai-agents", date: "Feb 2026" },
+  { group: "AI & GenAI", title: "Introduction to AI for Work",        slug: "introduction-to-ai-for-work", date: "Feb 2026" },
+  { group: "AI & GenAI", title: "AI Ethics",                          slug: "ai-ethics", date: "Feb 2026" },
+  { group: "AI & GenAI", title: "Understanding ChatGPT",              slug: "understanding-chatgpt", date: "Feb 2026" },
 ];
 
 const groups = ["Data & Python", "DevOps & Tools", "AI & GenAI"];
@@ -57,6 +57,7 @@ const groups = ["Data & Python", "DevOps & Tools", "AI & GenAI"];
                 <div class="font-semibold text-sm leading-snug">{cert.title}</div>
                 <div class="badge badge-secondary shrink-0 text-[10px]">DataCamp</div>
               </div>
+              <div class="text-xs opacity-50 mt-1">Completed {cert.date}</div>
             </div>
           </div>
         ))}
