@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BackToProjects from "../../components/BackToProjects.astro";
 ---
@@ -12,8 +12,8 @@ import BackToProjects from "../../components/BackToProjects.astro";
   </div>
 
   <div class="flex flex-wrap gap-3 mb-8">
-    <a href="https://jobtrail-0gza.onrender.com" target="_blank" class="btn btn-primary">Live demo â†’</a>
-    <a href="https://github.com/neuralxjam/jobtrail" target="_blank" class="btn btn-outline">View source â†’</a>
+    <a href="https://jobtrail-0gza.onrender.com" target="_blank" class="btn btn-primary">Live demo →</a>
+    <a href="https://github.com/neuralxjam/jobtrail" target="_blank" class="btn btn-outline">View source →</a>
   </div>
 
   <img src="/projects/jobtrail.gif" alt="JobTrail demo" class="rounded-lg w-full mb-8 border" />
@@ -27,7 +27,7 @@ import BackToProjects from "../../components/BackToProjects.astro";
 
   <div class="text-2xl font-bold mb-3">Solution</div>
   <div class="mb-8 text-base text-justify">
-    A personal web application where you log every application â€” company, role, date, status, and notes â€”
+    A personal web application where you log every application — company, role, date, status, and notes —
     and see it all in one dashboard. Filter by status (Applied / Interviewing / Offer / Rejected),
     search by company, and track weekly activity on a chart. Built with real magic-link auth so your data is private to you.
   </div>
@@ -36,7 +36,7 @@ import BackToProjects from "../../components/BackToProjects.astro";
   <div class="overflow-x-auto mb-8">
     <table class="table table-zebra">
       <tbody>
-        <tr><td><b>Backend</b></td><td>FastAPI Â· SQLModel</td></tr>
+        <tr><td><b>Backend</b></td><td>FastAPI · SQLModel</td></tr>
         <tr><td><b>Database</b></td><td>PostgreSQL via Supabase</td></tr>
         <tr><td><b>Frontend</b></td><td>Jinja2 + HTMX + Tailwind CSS (no React, no build step)</td></tr>
         <tr><td><b>Auth</b></td><td>Supabase magic-link email auth (Resend SMTP)</td></tr>
@@ -49,7 +49,7 @@ import BackToProjects from "../../components/BackToProjects.astro";
   <div class="text-2xl font-bold mb-3">Architecture</div>
   <img src="/projects/jobtrail-arch.png" alt="JobTrail architecture" class="rounded-lg w-full mb-3 border bg-white p-4" />
   <div class="mb-8 text-base text-justify opacity-80">
-    Browser â†’ FastAPI on Render â†’ Supabase Postgres. HTMX swaps in HTML fragments from FastAPI endpoints â€”
+    Browser → FastAPI on Render → Supabase Postgres. HTMX swaps in HTML fragments from FastAPI endpoints —
     no JSON API needed for v1. Auth tokens stored in HttpOnly cookies.
   </div>
 
@@ -57,7 +57,7 @@ import BackToProjects from "../../components/BackToProjects.astro";
   <ul class="list-disc mx-6 mb-10 grid gap-2 text-base">
     <li><b>Render's Python default bites you.</b> Render's build env defaults to Python 3.14, which breaks half the ecosystem. Pin via <code>.python-version</code> with <code>3.11.9</code>; saves a long Sunday afternoon of mysterious build failures.</li>
     <li><b>Supabase magic-link rate limits silently kill UX.</b> The default email provider is rate-limited per project; switching to Resend custom SMTP removes the limit and the "we'll get back to you in an hour" emails to yourself.</li>
-    <li><b>HTMX is genuinely enough for v1.</b> Inline create/edit/delete with no full-page reloads, no React, no build pipeline â€” the entire frontend is server-rendered HTML with sprinkles. Saves weeks vs. learning a SPA framework just to ship a CRUD app.</li>
+    <li><b>HTMX is genuinely enough for v1.</b> Inline create/edit/delete with no full-page reloads, no React, no build pipeline — the entire frontend is server-rendered HTML with sprinkles. Saves weeks vs. learning a SPA framework just to ship a CRUD app.</li>
   </ul>
 
   <div class="text-2xl font-bold mb-3">Local setup</div>
