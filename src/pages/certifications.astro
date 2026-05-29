@@ -1,5 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const certs = [
+  // Data & Python
+  { group: "Data & Python", title: "Data Manipulation with pandas",    slug: "data-manipulation-with-pandas" },
+  { group: "Data & Python", title: "Intermediate Python",              slug: "intermediate-python" },
+  { group: "Data & Python", title: "Introduction to Python",           slug: "intro-python" },
+  { group: "Data & Python", title: "Intermediate SQL",                 slug: "intermediate-sql" },
+  { group: "Data & Python", title: "Introduction to SQL",              slug: "intro-sql" },
+  { group: "Data & Python", title: "Understanding Machine Learning",   slug: "understanding-ml" },
+  // DevOps & Tools
+  { group: "DevOps & Tools", title: "Intermediate Git",                slug: "intermediate-git" },
+  { group: "DevOps & Tools", title: "Introduction to Git",             slug: "introduction-to-git" },
+  { group: "DevOps & Tools", title: "Intermediate GitHub Concepts",    slug: "intermediate-github-concepts" },
+  { group: "DevOps & Tools", title: "Introduction to GitHub Concepts", slug: "introduction-to-github-concepts" },
+  // AI & GenAI
+  { group: "AI & GenAI", title: "Generative AI Concepts",             slug: "generative-ai-concepts" },
+  { group: "AI & GenAI", title: "Large Language Models (LLMs) Concepts", slug: "llm-concepts" },
+  { group: "AI & GenAI", title: "Introduction to AI Agents",          slug: "introduction-to-ai-agents" },
+  { group: "AI & GenAI", title: "Introduction to AI for Work",        slug: "introduction-to-ai-for-work" },
+  { group: "AI & GenAI", title: "AI Ethics",                          slug: "ai-ethics" },
+  { group: "AI & GenAI", title: "Understanding ChatGPT",              slug: "understanding-chatgpt" },
+];
+
+const groups = ["Data & Python", "DevOps & Tools", "AI & GenAI"];
 ---
 
 <BaseLayout title="Certifications" sideBarActiveItemID="certifications">
@@ -7,105 +31,93 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Certifications</div>
   </div>
-  <p class="text-sm opacity-60 mb-8">All issued by <a href="https://www.datacamp.com" target="_blank" class="link link-hover font-semibold dc-link">DataCamp</a>.</p>
+  <p class="text-sm opacity-60 mb-8">All issued by <span class="font-semibold dc-text">DataCamp</span>.</p>
 
-  <!-- Group 1: Data & Python -->
-  <div class="mb-8">
-    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Data & Python</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-
-      {[
-        "Data Manipulation with pandas",
-        "Intermediate Python",
-        "Introduction to Python",
-        "Intermediate SQL",
-        "Introduction to SQL",
-        "Understanding Machine Learning",
-      ].map((title) => (
-        <div class="card bg-base-200 border border-base-300">
-          <div class="card-body p-4">
-            <div class="flex items-start justify-between gap-2 mb-1">
-              <div class="font-semibold text-sm leading-snug">{title}</div>
-              <span class="shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded dc-badge">DataCamp</span>
+  {groups.map((group) => (
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">{group}</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {certs.filter(c => c.group === group).map((cert) => (
+          <div
+            class="cert-card card bg-base-200 border border-base-300 cursor-pointer hover:shadow-md transition-shadow overflow-hidden"
+            data-pdf={`/certifications/${cert.slug}.pdf`}
+            data-title={cert.title}
+          >
+            <!-- Thumbnail -->
+            <figure class="relative overflow-hidden" style="aspect-ratio: 16/9;">
+              <img
+                src={`/certifications/thumbs/${cert.slug}.jpg`}
+                alt={cert.title}
+                class="w-full h-full object-cover object-top"
+              />
+            </figure>
+            <!-- Card body -->
+            <div class="card-body p-3">
+              <div class="flex items-start justify-between gap-2">
+                <div class="font-semibold text-sm leading-snug">{cert.title}</div>
+                <div class="badge badge-secondary shrink-0 text-[10px]">DataCamp</div>
+              </div>
             </div>
-            <div class="text-xs opacity-50">Issued by DataCamp</div>
           </div>
-        </div>
-      ))}
-
+        ))}
+      </div>
     </div>
-  </div>
+  ))}
 
-  <!-- Group 2: DevOps & Tools -->
-  <div class="mb-8">
-    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">DevOps & Tools</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-
-      {[
-        "Intermediate Git",
-        "Introduction to Git",
-        "Intermediate GitHub Concepts",
-        "Introduction to GitHub Concepts",
-      ].map((title) => (
-        <div class="card bg-base-200 border border-base-300">
-          <div class="card-body p-4">
-            <div class="flex items-start justify-between gap-2 mb-1">
-              <div class="font-semibold text-sm leading-snug">{title}</div>
-              <span class="shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded dc-badge">DataCamp</span>
-            </div>
-            <div class="text-xs opacity-50">Issued by DataCamp</div>
-          </div>
-        </div>
-      ))}
-
+  <!-- Modal -->
+  <dialog id="cert-modal" class="modal">
+    <div class="modal-box w-11/12 max-w-4xl p-0 overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-base-300">
+        <h3 id="modal-title" class="font-bold text-base"></h3>
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost">✕</button>
+        </form>
+      </div>
+      <iframe id="modal-iframe" src="" class="w-full border-0" style="height: 75vh;"></iframe>
     </div>
-  </div>
-
-  <!-- Group 3: AI & GenAI -->
-  <div class="mb-10">
-    <div class="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">AI & GenAI</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-
-      {[
-        "Generative AI Concepts",
-        "Large Language Models (LLMs) Concepts",
-        "Introduction to AI Agents",
-        "Introduction to AI for Work",
-        "AI Ethics",
-        "Understanding ChatGPT",
-      ].map((title) => (
-        <div class="card bg-base-200 border border-base-300">
-          <div class="card-body p-4">
-            <div class="flex items-start justify-between gap-2 mb-1">
-              <div class="font-semibold text-sm leading-snug">{title}</div>
-              <span class="shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded dc-badge">DataCamp</span>
-            </div>
-            <div class="text-xs opacity-50">Issued by DataCamp</div>
-          </div>
-        </div>
-      ))}
-
-    </div>
-  </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
 
 </BaseLayout>
 
-<style>
-  /* Light mode: muted green — readable without eye-searing contrast */
-  [data-theme="lofi"] .dc-badge {
-    background-color: #d1fae5;
-    color: #065f46;
-  }
-  [data-theme="lofi"] .dc-link {
-    color: #065f46;
+<script>
+  function init() {
+    const modal = document.getElementById("cert-modal") as HTMLDialogElement;
+    const iframe = document.getElementById("modal-iframe") as HTMLIFrameElement;
+    const modalTitle = document.getElementById("modal-title") as HTMLElement;
+
+    document.querySelectorAll(".cert-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const pdf = card.getAttribute("data-pdf") ?? "";
+        const title = card.getAttribute("data-title") ?? "";
+        modalTitle.textContent = title;
+        iframe.src = pdf;
+        modal.showModal();
+      });
+    });
+
+    modal.addEventListener("close", () => {
+      iframe.src = "";
+    });
   }
 
-  /* Dark mode: DataCamp brand green works fine on dark backgrounds */
-  [data-theme="dim"] .dc-badge {
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>
+
+<style>
+  [data-theme="lofi"] .badge-secondary {
+    background-color: #d1fae5;
+    color: #065f46;
+    border-color: #a7f3d0;
+  }
+  [data-theme="dim"] .badge-secondary.dc-badge {
     background-color: rgba(3, 239, 98, 0.15);
     color: #03EF62;
+    border-color: transparent;
   }
-  [data-theme="dim"] .dc-link {
-    color: #03EF62;
-  }
+  [data-theme="lofi"] .dc-text { color: #065f46; }
+  [data-theme="dim"]  .dc-text { color: #03EF62; }
 </style>
