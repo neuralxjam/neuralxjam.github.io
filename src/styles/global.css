@@ -13,10 +13,19 @@
   padding-left: calc(1rem - 3px) !important;
 }
 
-/* ── CDN icon images: invert to white in dark mode ── */
-[data-theme="dim"] .cdn-icon {
-  filter: invert(1);
+/* ── Job board text badges (Indeed / Jobstreet) ── */
+.job-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.35rem;
+  border: 1.5px solid currentColor;
+  opacity: 0.55;
+  text-decoration: none;
+  transition: opacity 0.15s;
 }
+.job-badge:hover { opacity: 1; }
 
 /* ── Dark mode badge overrides ── */
 
