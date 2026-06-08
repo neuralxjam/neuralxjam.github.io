@@ -1,27 +1,26 @@
 {
-  "name": "neuralxjam.github.io",
-  "description": "Personal portfolio site for Jhames Andrew Macabata (neuralxjam) — built with Astro and Tailwind.",
-  "type": "module",
-  "version": "3.0.0",
+  "name": "neuralxjam-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jhames Andrew Macabata — Software Engineer portfolio (Next.js, static export to GitHub Pages)",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.3",
-    "@astrojs/rss": "^3.0.0",
-    "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/tailwind": "^5.0.3",
-    "astro": "^4.0.2",
-    "daisyui": "^4.4.10",
-    "dayjs": "^1.11.9",
-    "sharp": "^0.32.6",
-    "tailwindcss": "^3.3.5"
+    "next": "16.2.7",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-icons": "^5.6.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10"
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5"
   }
 }
