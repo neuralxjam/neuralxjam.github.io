@@ -33,7 +33,7 @@ export const HERO = {
 };
 
 // Drop these image files into the /public folder with these exact names.
-export const EDUCATION_PHOTO = "/education-grad.jpg"; // graduation photo (Education section)
+export const EDUCATION_PHOTO = "/education-grad.webp"; // graduation photo (Education section)
 export const ABOUT_PHOTO = "/about-me.webp"; // second portrait (More About Me section)
 
 // 3 stat boxes shown inside the About Me section (inspo2 "+200 Clients" style)
