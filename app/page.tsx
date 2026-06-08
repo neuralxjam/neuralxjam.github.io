@@ -89,8 +89,8 @@ export default function Home() {
 
           </div>
 
-          {/* photo blob */}
-          <Reveal className="md:justify-self-end">
+          {/* photo blob — order-first so it appears above text on mobile */}
+          <Reveal className="order-first md:order-none md:justify-self-end">
             <div className="relative mx-auto w-full max-w-[18rem] md:max-w-sm">
               <div className="absolute -inset-4 rounded-full bg-[var(--color-accent)]/10 blur-2xl" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -122,12 +122,12 @@ export default function Home() {
           <div className="mt-10 grid gap-6 md:grid-cols-[0.8fr_1.2fr]">
             {/* graduation photo */}
             <Reveal>
-              <div className="card relative h-56 overflow-hidden bg-[linear-gradient(160deg,#16223e,#101a30)] md:h-full md:min-h-[300px]">
+              <div className="card relative overflow-hidden bg-[linear-gradient(160deg,#16223e,#101a30)] aspect-[3/4] md:aspect-auto md:h-full md:min-h-[300px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={EDUCATION_PHOTO}
                   alt="Jhames Andrew Macabata — graduation"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
             </Reveal>
