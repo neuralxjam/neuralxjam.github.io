@@ -24,25 +24,18 @@ import {
   type Project,
 } from "@/lib/content";
 
-// Home project grid = 5 personal builds + the 8Con client site (6 cards, inspo2 layout)
-const eightCon = CLIENT_WORK.find((c) => c.title.startsWith("8Con"));
+// Carousel: Edge first, then the 4 client projects in requested order
+function clientToProject(slug: string, badge: string): Project {
+  const c = CLIENT_WORK.find((p) => p.slug === slug)!;
+  return { slug: c.slug, title: c.title, badge, group: "Client Work", desc: c.desc, tech: c.tech, image: c.image, live: c.live, liveLabel: c.liveLabel, repo: c.repo };
+}
+const edge = PROJECTS.find((p) => p.slug === "edge")!;
 const HOME_PROJECTS: Project[] = [
-  ...PROJECTS,
-  ...(eightCon
-    ? [
-        {
-          slug: "8con",
-          title: "8Con Academy Website",
-          badge: "Client",
-          group: "Client Work",
-          desc: eightCon.desc,
-          tech: eightCon.tech,
-          live: eightCon.live,
-          liveLabel: eightCon.liveLabel,
-          repo: eightCon.repo,
-        } as Project,
-      ]
-    : []),
+  edge,
+  clientToProject("jklothing", "Client · Dashboard"),
+  clientToProject("jkloting",  "Client · Web"),
+  clientToProject("8conacademy", "Client · Internship"),
+  clientToProject("pcci",      "Client · Platform"),
 ];
 
 function ExternalIcon() {

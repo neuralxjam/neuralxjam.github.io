@@ -247,6 +247,7 @@ export const CLIENT_WORK: ClientProject[] = [
     status: "Live",
     desc: "Internal ops tool: orders, production costs, cash-flow ledger, inventory, fund allocations, plus automated BIR tax-filing reminder emails via GitHub Actions cron.",
     tech: ["Next.js 16", "React 19", "Supabase", "Recharts", "GitHub Actions"],
+    image: "/projects/J.Kloting-Dashboard-A.png",
     live: "https://jklothing-dashboard.vercel.app",
     liveLabel: "Live app",
   },
