@@ -236,7 +236,7 @@ export const CLIENT_WORK: ClientProject[] = [
     title: "J.Kloting — Apparel Marketing & Quote Site",
     status: "Live",
     desc: "Two-page marketing + quote-system site for a Bulacan-based custom apparel printer (DTF / sublimation / silk-screen). Portfolio filtering, pricing breakdown, AJAX forms with spam protection.",
-    tech: ["Bootstrap 4", "jQuery", "Cloudflare Workers", "Web3Forms"],
+    tech: ["Bootstrap 4", "jQuery", "Cloudflare Workers", "Firebase Firestore", "Cloudinary", "MailerLite"],
     image: "/projects/jkloting.png",
     live: "https://jkloting.store/",
     liveLabel: "Live site",

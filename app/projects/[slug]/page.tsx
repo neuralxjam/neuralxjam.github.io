@@ -786,9 +786,9 @@ function PCCIPage() {
 function JklotingPage() {
   return (
     <ProjectDetailLayout
-      badge="Client Work · Frontend"
+      badge="Client Work · Frontend + Edge"
       title="J.Kloting Website"
-      subtitle="Custom apparel printing — marketing site & quote system"
+      subtitle="Custom apparel printing — marketing site, live barong catalog & AI stylist"
       links={[
         { label: "Live Site", href: "https://jkloting.store/", primary: true },
         { label: "View Source", href: "https://github.com/neuralxjam/jkloting_website" },
@@ -798,10 +798,11 @@ function JklotingPage() {
       <Section title="About">
         <p className="text-sm leading-relaxed text-[var(--color-muted)]">
           A two-page marketing site built for <strong className="text-[var(--color-ink)]">J.Kloting</strong>, a
-          custom apparel printer in Meycauayan City, Bulacan, Philippines. Their offering covers DTF,
-          sublimation, and silk-screen printing for schools, sports teams, corporate uniforms, streetwear, and
-          traditional barong shirts. The site serves as both a brand presence and a working lead-generation tool
-          — visitors can browse the portfolio, see pricing per print method, and submit quote requests directly.
+          custom apparel printer in Bulacan, Philippines. Their offering covers DTF, sublimation, and
+          full-sublimation printing for schools, sports teams, corporate uniforms, streetwear, and traditional
+          barong shirts. The site is a no-build static frontend backed by a Cloudflare Worker edge API,
+          Firebase Firestore for the live barong catalog, and Cloudinary for image hosting — an unusual hybrid
+          that behaves more like a small app than a plain landing page.
         </p>
       </Section>
 
@@ -810,23 +811,27 @@ function JklotingPage() {
           items={[
             {
               bold: "Two pages.",
-              text: "A single-scroll landing (index.html) and a dedicated barong product page (barong.html).",
+              text: "A single-scroll landing (index.html) and a dedicated live barong catalog (barong.html) — both served from a Cloudflare Worker with Static Assets.",
             },
             {
-              bold: "Portfolio with filtering.",
-              text: "MixItUp-powered grid filtering work by category (corporate, sportswear, uniforms, streetwear, barong).",
+              bold: "Live barong catalog.",
+              text: "barong-catalog.js (ES module) reads status=available products from Firebase Firestore in real time. Images are served via Cloudinary CDN. The internal dashboard writes to the same Firestore the public site reads.",
             },
             {
-              bold: "Pricing breakdown per print method.",
-              text: "DTF, sublimation, silk-screen, each with a feature list and turnaround time.",
+              bold: "AI Barong Stylist.",
+              text: "Fuzzy keyword + color search powered by a Cloudflare Worker endpoint — returns matching barong suggestions from the live catalog with graceful no-results fallback.",
             },
             {
-              bold: "4-step process explainer.",
-              text: "Inquiry → Quote → Approve & Pay → Production & Delivery, with payment terms (50/50 split, GCash / bank transfer / cash on pickup).",
+              bold: "Newsletter.",
+              text: "MailerLite double opt-in via POST /api/subscribe on the Worker — no third-party embed, custom success/error states.",
             },
             {
-              bold: "Two AJAX forms.",
-              text: "Quick Message + Quote Request, posting to Web3Forms with honeypot spam protection and animated success/error states.",
+              bold: "Contact & quote forms.",
+              text: "Web3Forms — Quick Message + Quote Request with honeypot spam protection and animated feedback states.",
+            },
+            {
+              bold: "Custom mobile drawer.",
+              text: "Right-side slide-in nav (mobile-drawer.js) with a 4-square SVG burger that inherits the navbar color — replaced the original Slicknav dropdown.",
             },
             {
               bold: "Mobile contact bar.",
@@ -839,20 +844,22 @@ function JklotingPage() {
       <Section title="Tech Stack">
         <TechTable
           rows={[
-            ["Markup & Styles", "HTML5 · custom CSS · Bootstrap 4 grid + components"],
-            ["Typography", "Google Fonts — Playfair Display (headings) + Poppins (body)"],
-            ["JavaScript", "jQuery + plugins: WOW.js (animations) · MixItUp (filter) · Owl Carousel · Slicknav"],
-            ["Forms", "Web3Forms API (no own backend) · honeypot anti-spam · client-side validation"],
-            ["Hosting", "Cloudflare Workers (wrangler.jsonc) at the custom jkloting.store domain"],
+            ["Markup & Styles", "HTML5 · custom CSS · Bootstrap 4 grid + components — no build step, no framework"],
+            ["JavaScript", "jQuery · WOW.js (scroll animations) · Owl Carousel · vanilla ES modules for catalog, drawer, AI stylist"],
+            ["Barong Catalog", "Firebase Firestore (jklothing-inventory) — public read, write-blocked · Cloudinary (dn3gaufjz) for image CDN"],
+            ["Backend / API", "Cloudflare Worker (worker/index.js, wrangler.jsonc) — serves static assets + /api/subscribe (MailerLite)"],
+            ["Forms", "Web3Forms (contact/quote) · MailerLite double opt-in (newsletter via Worker)"],
+            ["Hosting", "Cloudflare Worker + anycast edge · auto-deploys from GitHub via Workers Builds · custom domain jkloting.store"],
           ]}
         />
       </Section>
 
       <InfoBanner>
-        The stack is deliberately traditional — jQuery + Bootstrap 4 + a serverless edge host — chosen because
-        the brief was a fast-turnaround marketing site for a small business, not a SPA. The trade-off was the
-        right one: the site is small, fast, easy for the client to update later, and was shipped live on a
-        custom domain end-to-end.
+        Intentionally no framework and no build step — the brief was a fast-turnaround marketing site for a
+        small business, not a SPA. But "static" is misleading: the barong catalog is Firestore-driven with live
+        inventory, images are on Cloudinary CDN, and a Worker handles the newsletter API. The trade-off was
+        right: fast to ship, easy for the client to understand, and the hybrid approach kept everything on the
+        free tier.
       </InfoBanner>
     </ProjectDetailLayout>
   );
