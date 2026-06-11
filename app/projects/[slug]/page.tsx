@@ -908,13 +908,15 @@ function JklothingPage() {
         <TechTable
           rows={[
             ["Framework", "Next.js 16 (App Router) · React 19 · TypeScript"],
-            ["Database & Auth", "Supabase (PostgreSQL + Auth via @supabase/ssr)"],
+            ["Database & Auth", "Supabase — PostgreSQL + Auth (@supabase/ssr) + Row Level Security (RLS)"],
+            ["Barong Catalog", "Firebase Firestore (jklothing-inventory) via Admin SDK — same DB the public jkloting.store reads"],
+            ["Images", "Cloudinary (dn3gaufjz) — client-side WebP compression before upload via browser canvas"],
             ["Forms & Validation", "react-hook-form + Zod schemas (@hookform/resolvers)"],
-            ["Charts", "Recharts"],
-            ["Styling", "Tailwind CSS v4 · lucide-react icons"],
-            ["Email", "Nodemailer over Gmail SMTP"],
-            ["Scheduling", "GitHub Actions cron → secured Vercel API route"],
-            ["Deploy", "Vercel"],
+            ["Charts", "Recharts — revenue, cost, and cash-flow summaries"],
+            ["Styling", "Tailwind CSS v4 — custom dark fintech design system with light/dark theme toggle"],
+            ["Email", "Nodemailer + Gmail SMTP — BIR tax deadline reminders + MailerLite API for new-arrival newsletter drafts"],
+            ["Scheduling", "GitHub Actions daily cron → secured /api/cron/tax-reminders (CRON_SECRET header)"],
+            ["Deploy", "Vercel (Hobby tier — $0/month)"],
           ]}
         />
       </Section>
@@ -926,10 +928,11 @@ function JklothingPage() {
             ["Orders", "Create → edit → complete workflow, with CSV export of order history"],
             ["Costs", "Track production/material costs and attribute them to jobs"],
             ["Cash Flow", "Ledger with recurring entries, account transfers, manual adjustments, and exportable statements"],
-            ["Inventory", "Track stock levels for materials and finished goods"],
+            ["Barong Catalog", "CRUD for barong products at /inventory — writes to Firebase Firestore + Cloudinary; instantly reflected on the public jkloting.store"],
             ["Allocations", "Allocate funds across purposes/accounts"],
             ["Dashboard", "Recharts summaries of revenue, costs, and cash position"],
-            ["BIR Tax Reminders", "Daily cron checks upcoming filing deadlines and emails reminders"],
+            ["BIR Tax Reminders", "Daily GitHub Actions cron checks upcoming filing deadlines and sends email via Gmail SMTP"],
+            ["Newsletter", "MailerLite API generates new-arrival newsletter drafts when barong products are added"],
           ]}
         />
       </Section>
