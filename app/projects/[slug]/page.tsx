@@ -793,6 +793,7 @@ function JklotingPage() {
         { label: "Live Site", href: "https://jkloting.store/", primary: true },
         { label: "View Source", href: "https://github.com/neuralxjam/jkloting_website" },
       ]}
+      video="/projects/jkloting.mp4"
     >
       <Section title="About">
         <p className="text-sm leading-relaxed text-[var(--color-muted)]">
@@ -867,6 +868,13 @@ function JklothingPage() {
       subtitle="Operations & Finance Management System for a Custom Apparel Business"
       links={[
         { label: "Live App", href: "https://jklothing-dashboard.vercel.app", primary: true },
+      ]}
+      images={[
+        "/projects/J.Kloting-Dashboard-A.png",
+        "/projects/J.Kloting-Dashboard-B.png",
+        "/projects/J.Kloting-Dashboard-C.png",
+        "/projects/J.Kloting-Dashboard-D.png",
+        "/projects/J.Kloting-Dashboard-E.png",
       ]}
     >
       <Section title="Problem">
@@ -974,6 +982,7 @@ function EightConPage() {
         { label: "Live Site", href: "https://www.8conacademy.com/", primary: true },
         { label: "View Source", href: "https://github.com/neuralxjam/8ConLandingPage-main" },
       ]}
+      video="/projects/8conacademy.mp4"
     >
       <Section title="About">
         <p className="mb-4 text-sm leading-relaxed text-[var(--color-muted)]">
@@ -1047,6 +1056,7 @@ function RsvpPage() {
       links={[
         { label: "Live Site", href: "https://excroosivelymeantforlyka.netlify.app/", primary: true },
       ]}
+      video="/projects/rsvp.mp4"
     >
       <Section title="Problem">
         <p className="text-sm leading-relaxed text-[var(--color-muted)]">

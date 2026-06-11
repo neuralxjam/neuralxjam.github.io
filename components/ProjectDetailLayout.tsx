@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ProjectMediaCarousel from "@/components/ProjectMediaCarousel";
 
 function ExternalIcon() {
   return (
@@ -140,6 +141,8 @@ export default function ProjectDetailLayout({
   links,
   image,
   imageAlt,
+  images,
+  video,
   children,
 }: {
   badge: string;
@@ -148,6 +151,8 @@ export default function ProjectDetailLayout({
   links: { label: string; href: string; primary?: boolean }[];
   image?: string;
   imageAlt?: string;
+  images?: string[];
+  video?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -195,13 +200,19 @@ export default function ProjectDetailLayout({
           )}
         </div>
 
-        {/* demo image */}
-        {image && (
+        {/* media: carousel | video | single image */}
+        {images && images.length > 0 ? (
+          <ProjectMediaCarousel images={images} title={title} />
+        ) : video ? (
+          <div className="mt-8 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-2)]">
+            <video autoPlay muted loop playsInline className="w-full" src={video} />
+          </div>
+        ) : image ? (
           <div className="mt-8 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-2)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={image} alt={imageAlt ?? title} className="w-full" />
           </div>
-        )}
+        ) : null}
 
         {/* page body */}
         <div className="mt-12 space-y-12">{children}</div>

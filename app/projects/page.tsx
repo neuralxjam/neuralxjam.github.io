@@ -50,38 +50,55 @@ export default function ProjectsPage() {
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {CLIENT_WORK.map((c, i) => (
             <Reveal key={c.title} delay={(i % 2) * 60}>
-              <article className="card flex h-full flex-col p-6">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-base font-semibold text-[var(--color-ink)]">{c.title}</h3>
-                  <span className="shrink-0 rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] px-2.5 py-1 text-[11px] text-[var(--color-muted)]">
+              <article className="card group flex h-full flex-col overflow-hidden">
+                {/* thumbnail */}
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-bg-2)]">
+                  {c.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#15203a,#1d2c4d)] p-4">
+                      <span className="text-center text-sm font-semibold text-[var(--color-muted)]">{c.title}</span>
+                    </div>
+                  )}
+                  <span className="absolute left-3 top-3 rounded-full bg-[var(--color-accent-soft)] px-2.5 py-1 text-[11px] font-semibold text-[var(--color-ink)] ring-1 ring-[var(--color-accent)]/40">
                     {c.status}
                   </span>
                 </div>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--color-muted)]">{c.desc}</p>
-                <ul className="mt-4 flex flex-wrap gap-1.5">
-                  {c.tech.map((t) => (
-                    <li key={t} className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface-2)] px-2 py-0.5 text-[11px] text-[var(--color-muted)]">
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-                  {c.live && (
-                    <a href={c.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent-2)] hover:text-[var(--color-ink)]">
-                      {c.liveLabel ?? "Live"} <ExternalIcon />
-                    </a>
-                  )}
-                  {c.repo && (
-                    <a href={c.repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[var(--color-muted)] hover:text-[var(--color-ink)]">
-                      GitHub <ExternalIcon />
-                    </a>
-                  )}
-                  <Link
-                    href={`/projects/${c.slug}/`}
-                    className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-accent-2)] hover:text-[var(--color-ink)]"
-                  >
-                    Details →
-                  </Link>
+
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-base font-semibold text-[var(--color-ink)]">{c.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-muted)]">{c.desc}</p>
+                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                    {c.tech.map((t) => (
+                      <li key={t} className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface-2)] px-2 py-0.5 text-[11px] text-[var(--color-muted)]">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                    {c.live && (
+                      <a href={c.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-accent-2)] hover:text-[var(--color-ink)]">
+                        {c.liveLabel ?? "Live"} <ExternalIcon />
+                      </a>
+                    )}
+                    {c.repo && (
+                      <a href={c.repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[var(--color-muted)] hover:text-[var(--color-ink)]">
+                        GitHub <ExternalIcon />
+                      </a>
+                    )}
+                    <Link
+                      href={`/projects/${c.slug}/`}
+                      className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-accent-2)] hover:text-[var(--color-ink)]"
+                    >
+                      Details →
+                    </Link>
+                  </div>
                 </div>
               </article>
             </Reveal>
