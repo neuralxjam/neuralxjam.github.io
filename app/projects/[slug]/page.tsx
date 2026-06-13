@@ -20,8 +20,8 @@ const ALL_SLUGS = [
   "jobtrail",
   "minilink",
   "pcci",
-  "jkloting",
-  "jklothing",
+  "jkloting-website",
+  "jkloting-dashboard",
   "8conacademy",
   "rsvp",
 ];
@@ -63,12 +63,12 @@ const META: Record<string, { title: string; description: string }> = {
     description:
       "Role-based membership management system for a Philippine chamber of commerce — dues tracking, payments, automated emails, and a Website CMS.",
   },
-  jkloting: {
+  "jkloting-website": {
     title: "J.Kloting Website",
     description:
       "Two-page marketing + quote-system site for a Bulacan custom apparel printer. Portfolio filtering, pricing, AJAX forms.",
   },
-  jklothing: {
+  "jkloting-dashboard": {
     title: "J.Kloting Dashboard",
     description:
       "Internal ops tool covering orders, costs, cash-flow, inventory, and automated BIR tax-filing reminders via GitHub Actions cron.",
@@ -116,8 +116,8 @@ export default async function ProjectDetailPage({
     jobtrail: JobTrailPage,
     minilink: MiniLinkPage,
     pcci: PCCIPage,
-    jkloting: JklotingPage,
-    jklothing: JklothingPage,
+    "jkloting-website": JklotingPage,
+    "jkloting-dashboard": JklothingPage,
     "8conacademy": EightConPage,
     rsvp: RsvpPage,
   };

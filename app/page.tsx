@@ -32,8 +32,8 @@ function clientToProject(slug: string, badge: string): Project {
 const edge = PROJECTS.find((p) => p.slug === "edge")!;
 const HOME_PROJECTS: Project[] = [
   edge,
-  clientToProject("jklothing", "Client · Dashboard"),
-  clientToProject("jkloting",  "Client · Web"),
+  clientToProject("jkloting-dashboard", "Client · Dashboard"),
+  clientToProject("jkloting-website",  "Client · Web"),
   clientToProject("8conacademy", "Client · Internship"),
   clientToProject("pcci",      "Client · Platform"),
 ];

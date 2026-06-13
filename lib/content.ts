@@ -232,7 +232,7 @@ export const CLIENT_WORK: ClientProject[] = [
     liveLabel: "Staging",
   },
   {
-    slug: "jkloting",
+    slug: "jkloting-website",
     title: "J.Kloting — Apparel Marketing & Quote Site",
     status: "Live",
     desc: "Two-page marketing + quote-system site for a Bulacan-based custom apparel printer (DTF / sublimation / silk-screen). Portfolio filtering, pricing breakdown, AJAX forms with spam protection.",
@@ -243,7 +243,7 @@ export const CLIENT_WORK: ClientProject[] = [
     repo: "https://github.com/neuralxjam/jkloting_website",
   },
   {
-    slug: "jklothing",
+    slug: "jkloting-dashboard",
     title: "J.Kloting Dashboard — Operations & Finance",
     status: "Live",
     desc: "Internal ops tool: orders, production costs, cash-flow ledger, inventory, fund allocations, plus automated BIR tax-filing reminder emails via GitHub Actions cron.",
